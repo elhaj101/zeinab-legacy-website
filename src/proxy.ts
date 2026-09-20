@@ -14,7 +14,7 @@ import { DEFAULT_LOCALE, isLocale } from "@/lib/i18n/locales";
  *     real-server equivalent of what el-haj-international's static export
  *     had to solve client-side.
  */
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   if (pathname === "/") {
