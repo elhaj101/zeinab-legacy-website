@@ -1,14 +1,12 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { useRouter } from "next/navigation";
 import type { Dictionary } from "@/lib/i18n/dictionary";
 import type { Locale } from "@/lib/i18n/locales";
 
 type Status = "idle" | "submitting" | "error";
 
 export default function ApplicationForm({ locale, dict }: { locale: Locale; dict: Dictionary }) {
-  const router = useRouter();
   const [status, setStatus] = useState<Status>("idle");
   const f = dict.apply.form;
 
@@ -26,7 +24,11 @@ export default function ApplicationForm({ locale, dict }: { locale: Locale; dict
         body: JSON.stringify({ locale, ...payload }),
       });
       if (!res.ok) throw new Error("submission_failed");
-      router.push(`/${locale}/apply/thank-you`);
+      // A full page load, not router.push — see LanguageSwitcher.tsx's
+      // comment for why: a client-side soft navigation between locale-
+      // sensitive routes was observed to occasionally render an internally
+      // inconsistent page here too.
+      window.location.href = `/${locale}/apply/thank-you`;
     } catch {
       setStatus("error");
     }

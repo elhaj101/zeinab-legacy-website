@@ -1,16 +1,22 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import { Fraunces, Inter, Cairo } from "next/font/google";
 import "./globals.css";
-import { DEFAULT_LOCALE, dirFor, isLocale, type Locale } from "@/lib/i18n/locales";
 
 /**
- * The TRUE root layout — the only place `<html>`/`<body>` can be declared
- * (see middleware.ts's comment for why this can't just read the `locale`
- * route param directly). Fonts: Fraunces (a warm, elegant serif display
- * face — matches the brief's "premium, warm, modern, elegant, not cold/
- * corporate" direction, placeholder until real brand fonts are chosen) +
- * Inter for body text, both Latin-only, plus Cairo for Arabic pages.
+ * The TRUE root layout — the only place `<html>`/`<body>` can be declared.
+ * Deliberately locale-agnostic and static (no `headers()`, nothing
+ * request-dependent): `lang`/`dir` are corrected per-route by
+ * SetHtmlLangDir, invoked from `[locale]/layout.tsx`, which actually has
+ * the locale as a route param. See SetHtmlLangDir.tsx for why this
+ * component reads locale from a header here instead — short version: it
+ * didn't hold up under browser testing. `suppressHydrationWarning` because
+ * the static "de" below is a build-time placeholder, already stale by the
+ * time SetHtmlLangDir's inline script runs during HTML parsing.
+ *
+ * Fonts: Fraunces (a warm, elegant serif display face — matches the
+ * brief's "premium, warm, modern, elegant, not cold/corporate" direction,
+ * placeholder until real brand fonts are chosen) + Inter for body text,
+ * both Latin-only, plus Cairo for Arabic pages.
  */
 const displayLatin = Fraunces({
   variable: "--font-display-latin",
@@ -37,19 +43,15 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const headerList = await headers();
-  const rawLocale = headerList.get("x-locale") ?? DEFAULT_LOCALE;
-  const locale: Locale = isLocale(rawLocale) ? rawLocale : DEFAULT_LOCALE;
-
   return (
     <html
-      lang={locale}
-      dir={dirFor(locale)}
+      lang="de"
+      suppressHydrationWarning
       className={`${displayLatin.variable} ${bodyLatin.variable} ${arabic.variable} antialiased`}
     >
       <body>{children}</body>
