@@ -26,6 +26,34 @@ const de: Dictionary = {
     ctaMethod: "Die Methode entdecken",
   },
 
+  beforeAfter: {
+    eyebrow: "Vorher / Nachher",
+    headline: "So verändert sich dein Alltag mit LEGACY",
+    beforeLabel: "Ohne LEGACY",
+    beforePoints: [
+      "Du erklärst dein Angebot in jeder einzelnen DM neu.",
+      "Dein Content zeigt nicht klar, wofür du stehst.",
+      "Unqualifizierte Anfragen kosten Zeit, und die richtigen Menschen finden dich nicht.",
+      "Niemand weiß, was der nächste Schritt ist, nachdem sie dich entdeckt haben.",
+    ],
+    afterLabel: "Mit LEGACY",
+    afterPoints: [
+      "Deine Positionierung erklärt sich, bevor jemand dir schreibt.",
+      "Bewerber:innen wissen schon, wer du bist und was du anbietest.",
+      "Du bekommst regelmäßig qualifizierte Bewerbungen.",
+      "Jede Besucherin hat einen klaren nächsten Schritt: bewerben.",
+    ],
+    cta: "Jetzt bewerben",
+  },
+
+  whyLegacy: {
+    eyebrow: "Warum Positionierung zählt",
+    headline: "Menschen entscheiden in Sekunden",
+    body:
+      "Die meisten schauen sich dein Profil an, bevor sie dir überhaupt schreiben. Was sie in den ersten Sekunden sehen, entscheidet, ob sie bleiben oder weiterscrollen. LEGACY sorgt dafür, dass dieser erste Eindruck für dich arbeitet, nicht gegen dich.",
+    cta: "Die Methode entdecken",
+  },
+
   method: {
     eyebrow: "Die LEGACY-Methode",
     headline: "Ein System, kein Zufall",
@@ -89,6 +117,75 @@ const de: Dictionary = {
     ],
     disclaimer:
       "Gründungspreis für die ersten 3 Klient:innen im Personal Brand Authority-Programm: 1.190 € / Monat.",
+  },
+
+  testimonials: {
+    eyebrow: "Erfahrungsberichte",
+    headline: "Was Klientinnen über LEGACY sagen",
+    placeholderNote:
+      "Hier stehen bald echte Erfahrungsberichte. Laut ihrem eigenen Brief veröffentlicht Seinab Testimonials nur mit ausdrücklicher Zustimmung der jeweiligen Klientin, deshalb wird hier nichts erfunden.",
+    placeholderCardLabel: "Platzhalter",
+  },
+
+  whoFor: {
+    eyebrow: "Für wen LEGACY gemacht ist",
+    headline: "Ist LEGACY das Richtige für dich?",
+    items: [
+      "Coaches und Beraterinnen, die ihre Positionierung schärfen wollen",
+      "Dienstleisterinnen, die über Social Media Kund:innen gewinnen wollen",
+      "Network-Marketerinnen und Teamleiterinnen mit eigenem Aufbau",
+      "Creator und Expertinnen, die ihr Wissen zu einem Angebot machen wollen",
+      "Unternehmerinnen, die eine klare Positionierung brauchen",
+      "Bestehende oder ehemalige Klientinnen, die den nächsten Schritt gehen wollen",
+    ],
+  },
+
+  nextSteps: {
+    eyebrow: "So geht es weiter",
+    headline: "Drei Schritte bis zur Zusammenarbeit",
+    steps: [
+      { title: "Bewerben", description: "Du füllst das strukturierte Bewerbungsformular aus." },
+      {
+        title: "Analysegespräch",
+        description:
+          "Wir klären in einem kurzen Gespräch, ob und wie LEGACY zu deiner aktuellen Situation passt.",
+      },
+      {
+        title: "Loslegen",
+        description: "Du startest mit dem Audit oder direkt im Mentoring-Programm.",
+      },
+    ],
+  },
+
+  faq: {
+    eyebrow: "Häufige Fragen",
+    headline: "FAQ",
+    items: [
+      {
+        question: "Brauche ich schon eine große Reichweite?",
+        answer:
+          "Nein. Bei LEGACY geht es zuerst um Positionierung und Strategie, nicht um deine aktuelle Followerzahl.",
+      },
+      {
+        question: "Wie lange dauert das Personal Brand Authority-Programm?",
+        answer:
+          "12 Wochen, aufgeteilt in drei Phasen: Identität & Positionierung, Content & Sichtbarkeit, Verkauf & Wachstum.",
+      },
+      {
+        question:
+          "Kann ich erst ein einzelnes Gespräch buchen, bevor ich mich fürs ganze Programm entscheide?",
+        answer: "Ja, genau dafür ist das Brand Clarity Audit gedacht.",
+      },
+      {
+        question: "Bekomme ich automatisch einen Platz, wenn ich mich bewerbe?",
+        answer: "Nein. Jede Bewerbung wird einzeln geprüft, eine Bewerbung ist keine Zusage.",
+      },
+    ],
+  },
+
+  finalCta: {
+    headline: "Bereit, deine Positionierung ernst zu nehmen?",
+    cta: "Jetzt bewerben",
   },
 
   booking: {

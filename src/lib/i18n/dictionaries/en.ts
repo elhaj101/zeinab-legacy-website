@@ -25,6 +25,34 @@ const en: Dictionary = {
     ctaMethod: "Discover the method",
   },
 
+  beforeAfter: {
+    eyebrow: "Before / After",
+    headline: "How your day-to-day changes with LEGACY",
+    beforeLabel: "Without LEGACY",
+    beforePoints: [
+      "You explain your offer from scratch in every single DM.",
+      "Your content doesn't clearly show what you actually stand for.",
+      "Unqualified enquiries eat your time, and the right people don't find you.",
+      "Nobody knows what to do next after they discover you.",
+    ],
+    afterLabel: "With LEGACY",
+    afterPoints: [
+      "Your positioning explains itself before anyone messages you.",
+      "Applicants already know who you are and what you offer.",
+      "You get qualified applications on a predictable rhythm.",
+      "Every visitor has one clear next step: apply.",
+    ],
+    cta: "Apply now",
+  },
+
+  whyLegacy: {
+    eyebrow: "Why positioning matters",
+    headline: "People decide in seconds",
+    body:
+      "Most people check out your profile before they ever message you. What they see in those first few seconds decides whether they stay or scroll past. LEGACY makes sure that first impression works for you, not against you.",
+    cta: "Discover the method",
+  },
+
   method: {
     eyebrow: "The LEGACY method",
     headline: "A system, not guesswork",
@@ -88,6 +116,69 @@ const en: Dictionary = {
     ],
     disclaimer:
       "Founding-client price for the first 3 clients in the Personal Brand Authority programme: €1,190 / month.",
+  },
+
+  testimonials: {
+    eyebrow: "Testimonials",
+    headline: "What clients say about LEGACY",
+    placeholderNote:
+      "Real testimonials will go here once they exist. Per her own brief, Seinab only publishes a testimonial with the client's explicit permission, so nothing is invented here.",
+    placeholderCardLabel: "Placeholder",
+  },
+
+  whoFor: {
+    eyebrow: "Who LEGACY is for",
+    headline: "Is LEGACY right for you?",
+    items: [
+      "Coaches and consultants who want to sharpen their positioning",
+      "Service providers who want to win clients through social media",
+      "Network marketers and team leads building their own presence",
+      "Creators and experts turning their knowledge into an offer",
+      "Entrepreneurs who need clear positioning",
+      "Existing or former clients ready for the next step",
+    ],
+  },
+
+  nextSteps: {
+    eyebrow: "What happens next",
+    headline: "Three steps to working together",
+    steps: [
+      { title: "Apply", description: "You fill out the structured application form." },
+      {
+        title: "Analysis call",
+        description: "A short call to figure out whether and how LEGACY fits your situation.",
+      },
+      { title: "Get started", description: "You start with the Audit or straight into mentoring." },
+    ],
+  },
+
+  faq: {
+    eyebrow: "Frequently asked questions",
+    headline: "FAQ",
+    items: [
+      {
+        question: "Do I already need a large following?",
+        answer: "No. LEGACY starts with positioning and strategy, not your current follower count.",
+      },
+      {
+        question: "How long does the Personal Brand Authority programme take?",
+        answer:
+          "12 weeks, split into three phases: Identity & Positioning, Content & Visibility, Sales & Growth.",
+      },
+      {
+        question: "Can I book a single session before committing to the full programme?",
+        answer: "Yes, that's exactly what the Brand Clarity Audit is for.",
+      },
+      {
+        question: "Does applying guarantee me a spot?",
+        answer: "No. Every application is reviewed individually, applying is not a guarantee.",
+      },
+    ],
+  },
+
+  finalCta: {
+    headline: "Ready to take your positioning seriously?",
+    cta: "Apply now",
   },
 
   booking: {

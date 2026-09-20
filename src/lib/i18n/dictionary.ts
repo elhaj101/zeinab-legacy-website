@@ -42,6 +42,23 @@ export interface Dictionary {
     ctaMethod: string;
   };
 
+  beforeAfter: {
+    eyebrow: string;
+    headline: string;
+    beforeLabel: string;
+    beforePoints: string[];
+    afterLabel: string;
+    afterPoints: string[];
+    cta: string;
+  };
+
+  whyLegacy: {
+    eyebrow: string;
+    headline: string;
+    body: string;
+    cta: string;
+  };
+
   method: {
     eyebrow: string;
     headline: string;
@@ -61,6 +78,38 @@ export interface Dictionary {
     intro: string;
     items: OfferItem[];
     disclaimer: string;
+  };
+
+  testimonials: {
+    eyebrow: string;
+    headline: string;
+    /** Shown instead of fabricated quotes — her brief requires explicit
+        permission before publishing any testimonial. */
+    placeholderNote: string;
+    placeholderCardLabel: string;
+  };
+
+  whoFor: {
+    eyebrow: string;
+    headline: string;
+    items: string[];
+  };
+
+  nextSteps: {
+    eyebrow: string;
+    headline: string;
+    steps: { title: string; description: string }[];
+  };
+
+  faq: {
+    eyebrow: string;
+    headline: string;
+    items: { question: string; answer: string }[];
+  };
+
+  finalCta: {
+    headline: string;
+    cta: string;
   };
 
   booking: {
