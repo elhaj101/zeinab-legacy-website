@@ -5,8 +5,8 @@ export default function Faq({ dict }: { dict: Dictionary }) {
   const d = dict.faq;
 
   return (
-    <section className="border-t border-[var(--line)] bg-[var(--bg-alt)]">
-      <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+    <section className="flex min-h-dvh flex-col justify-center border-t border-[var(--line)] bg-[var(--bg-alt)]">
+      <div className="mx-auto w-full max-w-3xl px-4 py-16 sm:px-6">
         <p className="text-sm font-medium uppercase tracking-wide text-[var(--accent)]">{d.eyebrow}</p>
         <h2 className="display mt-2 text-3xl font-semibold sm:text-4xl">{d.headline}</h2>
 

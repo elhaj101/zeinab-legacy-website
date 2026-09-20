@@ -13,7 +13,7 @@ export default async function ThankYouPage({
   const dict = getDictionary(raw);
 
   return (
-    <section className="mx-auto max-w-xl px-4 py-24 text-center sm:px-6">
+    <section className="mx-auto flex min-h-dvh max-w-xl flex-col justify-center px-4 py-24 text-center sm:px-6">
       <h1 className="display text-3xl font-semibold sm:text-4xl">{dict.thankYou.headline}</h1>
       <p className="mt-4 text-[var(--muted)]">{dict.thankYou.body}</p>
       <Link

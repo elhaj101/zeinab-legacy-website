@@ -6,8 +6,8 @@ export default function FinalCta({ locale, dict }: { locale: Locale; dict: Dicti
   const d = dict.finalCta;
 
   return (
-    <section className="border-t border-[var(--line)] bg-[var(--bg)]">
-      <div className="mx-auto max-w-2xl px-4 py-16 text-center sm:px-6">
+    <section className="flex min-h-dvh flex-col justify-center border-t border-[var(--line)] bg-[var(--bg)]">
+      <div className="mx-auto w-full max-w-2xl px-4 py-16 text-center sm:px-6">
         <h2 className="display text-3xl font-semibold sm:text-4xl">{d.headline}</h2>
         <Link
           href={`/${locale}/apply`}

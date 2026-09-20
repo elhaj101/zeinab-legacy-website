@@ -6,8 +6,11 @@ export default function Offers({ locale, dict }: { locale: Locale; dict: Diction
   const base = `/${locale}`;
 
   return (
-    <section id="offers" className="border-t border-[var(--line)] bg-[var(--bg-alt)]">
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <section
+      id="offers"
+      className="flex min-h-dvh flex-col justify-center border-t border-[var(--line)] bg-[var(--bg-alt)]"
+    >
+      <div className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
         <p className="text-sm font-medium uppercase tracking-wide text-[var(--accent)]">
           {dict.offers.eyebrow}
         </p>

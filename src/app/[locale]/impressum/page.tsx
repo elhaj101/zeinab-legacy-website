@@ -15,7 +15,7 @@ export default async function ImpressumPage({
   const dict = getDictionary(raw);
 
   return (
-    <section className="mx-auto max-w-2xl px-4 py-16 sm:px-6">
+    <section className="mx-auto flex min-h-dvh max-w-2xl flex-col justify-center px-4 py-16 sm:px-6">
       <h1 className="display text-3xl font-semibold">{dict.legal.impressumTitle}</h1>
       <div className="mt-6">
         <LegalPlaceholderBanner message={dict.legal.placeholderBanner} />

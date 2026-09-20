@@ -7,7 +7,7 @@ export default function BeforeAfter({ locale, dict }: { locale: Locale; dict: Di
   const d = dict.beforeAfter;
 
   return (
-    <section className="mx-auto max-w-5xl px-4 py-16 sm:px-6">
+    <section className="mx-auto flex min-h-dvh max-w-5xl flex-col justify-center px-4 py-16 sm:px-6">
       <p className="text-sm font-medium uppercase tracking-wide text-[var(--accent)]">{d.eyebrow}</p>
       <h2 className="display mt-2 max-w-2xl text-3xl font-semibold sm:text-4xl">{d.headline}</h2>
 

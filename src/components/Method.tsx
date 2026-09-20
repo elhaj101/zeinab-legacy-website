@@ -3,8 +3,11 @@ import Accordion from "./Accordion";
 
 export default function Method({ dict }: { dict: Dictionary }) {
   return (
-    <section id="method" className="border-t border-[var(--line)] bg-[var(--bg-alt)]">
-      <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+    <section
+      id="method"
+      className="flex min-h-dvh flex-col justify-center border-t border-[var(--line)] bg-[var(--bg-alt)]"
+    >
+      <div className="mx-auto w-full max-w-3xl px-4 py-16 sm:px-6">
         <p className="text-sm font-medium uppercase tracking-wide text-[var(--accent)]">
           {dict.method.eyebrow}
         </p>

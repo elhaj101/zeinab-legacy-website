@@ -13,7 +13,7 @@ export default async function ApplyPage({
   const dict = getDictionary(raw);
 
   return (
-    <section className="mx-auto max-w-2xl px-4 py-16 sm:px-6">
+    <section className="mx-auto flex min-h-dvh max-w-2xl flex-col justify-center px-4 py-16 sm:px-6">
       <p className="text-sm font-medium uppercase tracking-wide text-[var(--accent)]">
         {dict.apply.eyebrow}
       </p>
