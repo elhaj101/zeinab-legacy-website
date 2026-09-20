@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import type { Dictionary } from "@/lib/i18n/dictionary";
 import type { Locale } from "@/lib/i18n/locales";
@@ -19,8 +20,15 @@ export default function Nav({ locale, dict }: { locale: Locale; dict: Dictionary
   return (
     <header className="sticky top-0 z-40 border-b border-[var(--line)] bg-[var(--bg)]/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
-        <Link href={base} className="display text-xl font-semibold tracking-tight">
-          LEGACY
+        <Link href={base} aria-label="LEGACY">
+          <Image
+            src="/images/legacy-logo.png"
+            alt="LEGACY"
+            width={225}
+            height={315}
+            priority
+            className="h-10 w-auto sm:h-12"
+          />
         </Link>
 
         <nav className="hidden items-center gap-6 text-sm sm:flex">
