@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------
+   LEGACY (Seinab Dabbous) — design tokens
+
+   PLACEHOLDER BRANDING. Her brief explicitly says the final logo, brand
+   colours, fonts and photo set are not yet confirmed — only the target
+   *feel* is: "premium, warm, modern, elegant — not cold/corporate."
+   Every value below lives here, in ONE file, so swapping in the real
+   brand assets later is a single edit, not a hunt through components.
+   --------------------------------------------------------------- */
+:root {
+  --bg: #faf7f4; /* warm ivory, not stark white */
+  --bg-alt: #f1e9e2; /* subtle warm section shift */
+  --fg: #241f1c; /* warm near-black */
+  --muted: #7a6f68;
+  --accent: #b3714a; /* warm terracotta placeholder accent */
+  --accent-soft: #e3c9b8;
+  --line: rgba(36, 31, 28, 0.12);
+
+  /* Latin by default — Arabic pages switch to Cairo via [dir="rtl"] below. */
+  --font-display: var(--font-display-latin);
+  --font-body: var(--font-body-latin);
+}
+
+html[dir="rtl"] {
+  --font-display: var(--font-arabic);
+  --font-body: var(--font-arabic);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-alt: var(--bg-alt);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-line: var(--line);
+  --font-display: var(--font-display);
+  --font-sans: var(--font-body);
+}
+
+html {
+  background: var(--bg);
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+}
+
+/* Arabic ligatures/leading read poorly with Latin-tuned letter-spacing —
+   loosen it on RTL pages the same way el-haj-international does. */
+html[dir="rtl"] {
+  letter-spacing: 0;
+}
+
+.display {
+  font-family: var(--font-display);
+}

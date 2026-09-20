@@ -1,0 +1,166 @@
+import type { Dictionary } from "../dictionary";
+
+// DRAFT PLACEHOLDER COPY — see dictionary.ts's top comment. Not Zeinab's own
+// voice yet; grounded only in facts from her 2026-09-20 brief.
+const de: Dictionary = {
+  meta: {
+    title: "LEGACY von Seinab Dabbous — Personal Branding & Business Development",
+    description:
+      "LEGACY ist das Personal-Branding-System von Seinab Dabbous für Coaches, Beraterinnen und Expertinnen, die ihre Positionierung, Sichtbarkeit und Kundengewinnung strategisch aufbauen wollen.",
+  },
+
+  nav: {
+    method: "Methode",
+    about: "Über Seinab",
+    offers: "Angebote",
+    apply: "Bewerben",
+    languageSwitcher: "Sprache wechseln",
+  },
+
+  hero: {
+    eyebrow: "Personal Branding & Business Development",
+    headline: "Deine Marke. Dein System. Dein LEGACY.",
+    subheadline:
+      "LEGACY ist das strukturierte System für Coaches, Beraterinnen und Expertinnen, die ihre persönliche Marke ernsthaft aufbauen wollen — klar positioniert, sichtbar und mit einem planbaren Weg zu qualifizierten Kundenanfragen.",
+    ctaApply: "Jetzt bewerben",
+    ctaMethod: "Die Methode entdecken",
+  },
+
+  method: {
+    eyebrow: "Die LEGACY-Methode",
+    headline: "Ein System, kein Zufall",
+    intro:
+      "LEGACY ist kein „mehr posten“-Ratschlag. Es ist ein dreiphasiges System, das Positionierung, Sichtbarkeit und Verkauf strategisch miteinander verbindet.",
+    phases: [
+      {
+        title: "Identität & Positionierung",
+        description:
+          "Wir arbeiten heraus, wofür du wirklich stehst — und wie du das klar und unverwechselbar kommunizierst.",
+      },
+      {
+        title: "Content & Sichtbarkeit",
+        description:
+          "Deine Positionierung wird sichtbar: ein Content-System, das Vertrauen aufbaut statt nur Reichweite zu jagen.",
+      },
+      {
+        title: "Verkauf & Wachstum",
+        description:
+          "Sichtbarkeit wird zu qualifizierten Anfragen — mit einem klaren, planbaren Weg zu neuen Kund:innen.",
+      },
+    ],
+  },
+
+  about: {
+    eyebrow: "Über Seinab",
+    headline: "Die Person hinter LEGACY",
+    body: [
+      "Platzhalter: Hier steht Seinabs eigene Geschichte, Erfahrung und Haltung — direkt, energisch, selbstbewusst, menschlich.",
+      "Dieser Abschnitt wird ersetzt, sobald Seinab ihren Text liefert (siehe Brief vom 2026-09-20, Abschnitt Content/Sprache).",
+    ],
+  },
+
+  offers: {
+    eyebrow: "Angebote",
+    headline: "Drei Wege, mit LEGACY zu arbeiten",
+    intro:
+      "Jedes Angebot ist auf eine andere Phase deines Business abgestimmt — von der ersten Klarheit bis zum skalierten Personal Brand.",
+    items: [
+      {
+        name: "Brand Clarity Audit",
+        price: "690 €",
+        cadence: "einmalig",
+        description:
+          "Eine fundierte Standortbestimmung deiner aktuellen Positionierung und Sichtbarkeit — mit konkreten nächsten Schritten.",
+      },
+      {
+        name: "Personal Brand Authority",
+        price: "1.490 € / Monat",
+        cadence: "12 Wochen, 3 Raten",
+        description:
+          "Das Flaggschiff-Mentoring: Identität & Positionierung → Content & Sichtbarkeit → Verkauf & Wachstum, eng begleitet.",
+      },
+      {
+        name: "Personal Brand Scale",
+        price: "2.490 € / Monat",
+        cadence: "mind. 3 Monate",
+        description:
+          "Für etablierte Marken, die ihr bestehendes System skalieren statt neu aufbauen wollen.",
+      },
+    ],
+    disclaimer:
+      "Gründungspreis für die ersten 3 Klient:innen im Personal Brand Authority-Programm: 1.190 € / Monat.",
+  },
+
+  booking: {
+    eyebrow: "Analysegespräch",
+    headline: "Lerne LEGACY in einem Gespräch kennen",
+    body:
+      "Buche ein kurzes Analysegespräch, um zu klären, ob und wie LEGACY zu deiner aktuellen Situation passt.",
+    ctaAvailable: "Termin buchen",
+    ctaComingSoon: "Terminbuchung folgt in Kürze",
+    comingSoonNote:
+      "Die Online-Terminbuchung wird eingerichtet, sobald das passende Buchungstool ausgewählt ist. Bis dahin: bitte über das Bewerbungsformular melden.",
+  },
+
+  apply: {
+    eyebrow: "Bewerbung",
+    headline: "Bewirb dich für LEGACY",
+    intro:
+      "Erzähl uns kurz von dir und deinem Business. Wir melden uns, um die nächsten Schritte zu besprechen.",
+    nonGuaranteeNote:
+      "Eine Bewerbung ist keine Zusage auf einen Platz im Programm — jede Anfrage wird individuell geprüft.",
+    form: {
+      name: "Name",
+      email: "E-Mail",
+      phone: "Telefon",
+      contactPreference: "Bevorzugter Kontaktweg",
+      contactPreferenceOptions: { email: "E-Mail", phone: "Telefon", whatsapp: "WhatsApp" },
+      businessType: "Art deines Business",
+      currentOffer: "Dein aktuelles Angebot",
+      mainChallenge: "Deine größte Herausforderung beim Aufbau deiner Marke",
+      goals: "Deine Ziele für die nächsten 3–6 Monate",
+      investmentReadiness: "Investitionsbereitschaft",
+      investmentReadinessOptions: {
+        ready: "Bereit zu investieren",
+        exploring: "Noch in der Prüfung",
+        notYet: "Aktuell noch nicht",
+      },
+      submit: "Bewerbung absenden",
+      submitting: "Wird gesendet …",
+      error: "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
+    },
+  },
+
+  thankYou: {
+    headline: "Danke für deine Bewerbung",
+    body:
+      "Wir haben deine Angaben erhalten und melden uns so schnell wie möglich mit den nächsten Schritten.",
+    backHome: "Zurück zur Startseite",
+  },
+
+  legal: {
+    placeholderBanner:
+      "Platzhalter — kein rechtsgültiger Text. Impressum und Datenschutzerklärung müssen vor Veröffentlichung von einer qualifizierten Stelle geprüft werden.",
+    impressumTitle: "Impressum",
+    impressumBody:
+      "Hier stehen die gesetzlich vorgeschriebenen Angaben (Name, Anschrift, Kontakt, ggf. Handelsregister/USt-IdNr.), sobald Zeinabs Geschäftsdaten vorliegen und rechtlich geprüft sind.",
+    datenschutzTitle: "Datenschutzerklärung",
+    datenschutzBody:
+      "Hier steht die vollständige Datenschutzerklärung nach DSGVO, sobald der tatsächliche Datenfluss (Formular, Buchung, Zahlungen, Analytics) feststeht und rechtlich geprüft ist.",
+  },
+
+  cookie: {
+    message:
+      "Diese Seite verwendet aktuell nur technisch notwendige Funktionen — keine Analyse- oder Marketing-Cookies.",
+    accept: "Verstanden",
+    decline: "Ablehnen",
+  },
+
+  footer: {
+    tagline: "LEGACY — Personal Branding & Business Development von Seinab Dabbous",
+    contactHeading: "Kontakt",
+    rights: "Alle Rechte vorbehalten.",
+  },
+};
+
+export default de;
