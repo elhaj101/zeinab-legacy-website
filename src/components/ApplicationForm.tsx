@@ -3,12 +3,25 @@
 import { useState, type FormEvent } from "react";
 import type { Dictionary } from "@/lib/i18n/dictionary";
 import type { Locale } from "@/lib/i18n/locales";
+import { CONTACT } from "@/config/contact";
+import { IS_STATIC_EXPORT } from "@/config/deployment";
 
 type Status = "idle" | "submitting" | "error";
 
 export default function ApplicationForm({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const [status, setStatus] = useState<Status>("idle");
   const f = dict.apply.form;
+
+  if (IS_STATIC_EXPORT) {
+    return (
+      <div className="mt-10 rounded-lg border border-[var(--line)] px-6 py-8 text-center">
+        <p>{f.previewNotice}</p>
+        <a href={`mailto:${CONTACT.email}`} className="mt-2 inline-block font-medium underline">
+          {CONTACT.email}
+        </a>
+      </div>
+    );
+  }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();

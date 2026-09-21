@@ -218,6 +218,7 @@ const en: Dictionary = {
       submit: "Submit application",
       submitting: "Sending …",
       error: "Something went wrong. Please try again.",
+      previewNotice: "This is a preview build — the application form isn't connected yet. In the meantime, reach out directly:",
     },
   },
 

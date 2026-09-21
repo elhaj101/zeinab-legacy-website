@@ -143,6 +143,7 @@ export interface Dictionary {
       submit: string;
       submitting: string;
       error: string;
+      previewNotice: string;
     };
   };
 

@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getDictionary } from "@/lib/i18n/getDictionary";
-import { DEFAULT_LOCALE, dirFor, isLocale } from "@/lib/i18n/locales";
+import { DEFAULT_LOCALE, dirFor, isLocale, LOCALES } from "@/lib/i18n/locales";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsent";
 import SetHtmlLangDir from "@/components/SetHtmlLangDir";
+
+// Required for `output: export` (GitHub Pages preview build) — tells Next
+// which [locale] values to prerender. Harmless no-op for the normal server
+// build. Nested pages under this layout inherit these params automatically.
+export function generateStaticParams() {
+  return LOCALES.map((locale) => ({ locale }));
+}
 
 export async function generateMetadata({
   params,

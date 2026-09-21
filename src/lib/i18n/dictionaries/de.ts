@@ -225,6 +225,7 @@ const de: Dictionary = {
       submit: "Bewerbung absenden",
       submitting: "Wird gesendet …",
       error: "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
+      previewNotice: "Dies ist eine Vorschau — das Bewerbungsformular ist noch nicht angebunden. Bitte wende dich in der Zwischenzeit direkt an:",
     },
   },
 
