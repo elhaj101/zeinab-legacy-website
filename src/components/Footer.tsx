@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Dictionary } from "@/lib/i18n/dictionary";
 import type { Locale } from "@/lib/i18n/locales";
 import { CONTACT } from "@/config/contact";
+import { asset } from "@/lib/asset";
 
 export default function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const base = `/${locale}`;
@@ -13,7 +14,7 @@ export default function Footer({ locale, dict }: { locale: Locale; dict: Diction
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 text-sm sm:px-6 md:flex-row md:items-start md:justify-between">
         <div>
           <Image
-            src="/images/legacy-logo.png"
+            src={asset("/images/legacy-logo.png")}
             alt="LEGACY"
             width={225}
             height={315}

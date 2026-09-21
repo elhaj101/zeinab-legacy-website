@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Dictionary } from "@/lib/i18n/dictionary";
+import { asset } from "@/lib/asset";
 
 export default function About({ dict }: { dict: Dictionary }) {
   return (
@@ -10,7 +11,7 @@ export default function About({ dict }: { dict: Dictionary }) {
       <div className="mx-auto grid w-full max-w-5xl items-center gap-10 px-4 py-16 sm:grid-cols-2 sm:px-6">
         <div className="relative mx-auto aspect-[2/3] w-full max-w-sm overflow-hidden rounded-2xl">
           <Image
-            src="/images/seinab-portrait-full.jpg"
+            src={asset("/images/seinab-portrait-full.jpg")}
             alt="Seinab Dabbous"
             fill
             sizes="(min-width: 640px) 400px, 90vw"

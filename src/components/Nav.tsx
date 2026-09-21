@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Dictionary } from "@/lib/i18n/dictionary";
 import type { Locale } from "@/lib/i18n/locales";
+import { asset } from "@/lib/asset";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Nav({ locale, dict }: { locale: Locale; dict: Dictionary }) {
@@ -22,7 +23,7 @@ export default function Nav({ locale, dict }: { locale: Locale; dict: Dictionary
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
         <Link href={base} aria-label="LEGACY">
           <Image
-            src="/images/legacy-logo.png"
+            src={asset("/images/legacy-logo.png")}
             alt="LEGACY"
             width={225}
             height={315}

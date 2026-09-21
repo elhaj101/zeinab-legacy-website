@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Dictionary } from "@/lib/i18n/dictionary";
 import type { Locale } from "@/lib/i18n/locales";
+import { asset } from "@/lib/asset";
 
 export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const base = `/${locale}`;
@@ -13,7 +14,7 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionar
           the full-length shot that slice was mostly blank wall above her
           head. A face-centered close-up survives that crop. */}
       <Image
-        src="/images/seinab-portrait-close.jpg"
+        src={asset("/images/seinab-portrait-close.jpg")}
         alt="Seinab Dabbous"
         fill
         priority
