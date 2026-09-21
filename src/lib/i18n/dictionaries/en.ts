@@ -81,8 +81,10 @@ const en: Dictionary = {
     eyebrow: "About Seinab",
     headline: "The person behind LEGACY",
     body: [
-      "Placeholder: Seinab's own story, experience and voice go here — direct, energetic, confident, human.",
-      "This section will be replaced once Seinab supplies her text (see the 2026-09-20 brief, Content/Language section).",
+      "I started at the very bottom — no experience, no industry knowledge, no roadmap. What I had was the willingness to keep learning and keep showing up, especially when it got uncomfortable.",
+      "That consistency turned into a real career in network marketing: building and leading a team, rebuilding after setbacks, and learning first-hand that personal branding and real leadership go hand in hand.",
+      "Today I bring together experience in team building, sales, personal branding, business development, and NLP coaching. I don't teach from theory — I teach from what I've actually built, lost, and rebuilt myself.",
+      "Through LEGACY, I help ambitious women and entrepreneurs build a strong personal brand, real leadership, and a business grounded in clarity, confidence, and strategy.",
     ],
   },
 

@@ -82,8 +82,10 @@ const de: Dictionary = {
     eyebrow: "Über Seinab",
     headline: "Die Person hinter LEGACY",
     body: [
-      "Platzhalter: Hier steht Seinabs eigene Geschichte, Erfahrung und Haltung — direkt, energisch, selbstbewusst, menschlich.",
-      "Dieser Abschnitt wird ersetzt, sobald Seinab ihren Text liefert (siehe Brief vom 2026-09-20, Abschnitt Content/Sprache).",
+      "Ich habe ganz unten angefangen — ohne Erfahrung, ohne Branchenwissen, ohne Plan. Was ich hatte, war die Bereitschaft, jeden Tag dazuzulernen und dranzubleiben, auch wenn es unbequem wurde.",
+      "Aus dieser Konsequenz ist eine echte Karriere im Network Marketing entstanden: ein Team aufgebaut und geführt, Rückschläge erlebt, aus denen ich neu aufgebaut habe, und dabei gelernt, dass Personenmarke und echte Führung zusammengehören.",
+      "Heute bringe ich Erfahrung aus Teamaufbau, Vertrieb, Personenmarke, Business Development und NLP-Coaching zusammen. Ich unterrichte nicht aus der Theorie, sondern aus dem, was ich selbst gebaut, verloren und wieder aufgebaut habe.",
+      "Mit LEGACY helfe ich ambitionierten Frauen und Unternehmerinnen, eine starke Personenmarke, echte Führungsstärke und ein Business mit Klarheit, Selbstvertrauen und Strategie aufzubauen.",
     ],
   },
 
