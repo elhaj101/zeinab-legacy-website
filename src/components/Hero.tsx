@@ -48,7 +48,7 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionar
             {dict.hero.ctaApply}
           </Link>
           <a
-            href={`${base}#method`}
+            href={asset(`${base}#method`)}
             className="w-full rounded-full border border-white/60 px-6 py-3 font-medium text-white transition hover:bg-white/10 sm:w-auto"
           >
             {dict.hero.ctaMethod}

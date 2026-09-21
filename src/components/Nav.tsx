@@ -13,9 +13,9 @@ export default function Nav({ locale, dict }: { locale: Locale; dict: Dictionary
   const base = `/${locale}`;
 
   const links = [
-    { href: `${base}#method`, label: dict.nav.method },
-    { href: `${base}#about`, label: dict.nav.about },
-    { href: `${base}#offers`, label: dict.nav.offers },
+    { href: asset(`${base}#method`), label: dict.nav.method },
+    { href: asset(`${base}#about`), label: dict.nav.about },
+    { href: asset(`${base}#offers`), label: dict.nav.offers },
   ];
 
   return (

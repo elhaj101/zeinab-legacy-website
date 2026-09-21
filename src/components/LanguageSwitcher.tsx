@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { LOCALES, LOCALE_NAMES, type Locale } from "@/lib/i18n/locales";
+import { asset } from "@/lib/asset";
 
 /** Swaps only the leading `/xx` locale segment, keeping the rest of the
     path (e.g. `/de/apply` -> `/ar/apply`). */
@@ -40,7 +41,7 @@ export default function LanguageSwitcher({
       {LOCALES.map((l) => (
         <a
           key={l}
-          href={pathForLocale(pathname, l)}
+          href={asset(pathForLocale(pathname, l))}
           aria-current={l === locale ? "true" : undefined}
           className={
             l === locale
