@@ -61,9 +61,10 @@ html[dir="rtl"] {
 }
 
 /* ---------------------------------------------------------------
-   Hero subheadline reveal — Ali's request (2026-09-22): the phrase
-   builds up one chunk at a time (JS-driven, see Hero.tsx) in a glowing
-   neon-white treatment instead of appearing all at once.
+   Hero subheadline reveal — Ali's request (2026-09-22, revised same day):
+   one phrase on screen at a time, each replacing the last (NOT
+   accumulated into the full sentence) — JS-driven in Hero.tsx, glowing
+   neon-white treatment.
    --------------------------------------------------------------- */
 .hero-neon {
   color: #fff;
@@ -78,6 +79,15 @@ html[dir="rtl"] {
   display: inline-block;
   opacity: 0;
   animation: heroNeonFlicker 0.7s ease-out forwards;
+}
+
+/* Fade-out just before Hero.tsx swaps in the next phrase (same element,
+   class toggle — not a remount, so this transition actually plays). By
+   the time this class lands, HOLD_MS has already let the flicker-in
+   animation above finish, so there's no conflict between the two. */
+.hero-neon-chunk.is-leaving {
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
 }
 
 @keyframes heroNeonFlicker {

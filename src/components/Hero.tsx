@@ -7,32 +7,54 @@ import type { Dictionary } from "@/lib/i18n/dictionary";
 import type { Locale } from "@/lib/i18n/locales";
 import { asset } from "@/lib/asset";
 
-/** Milliseconds between each subheadline phrase lighting up. */
-const REVEAL_STEP_MS = 480;
+/** How long each phrase stays fully visible before the next one replaces it. */
+const HOLD_MS = 900;
+/** Crossfade duration between phrases — must match `.is-leaving` in globals.css. */
+const FADE_MS = 300;
 
 export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const base = `/${locale}`;
   const chunks = dict.hero.subheadline;
 
-  // Reveals one phrase at a time on mount, each staying lit (see the
-  // `.hero-neon` rules in globals.css) — Ali's request for a dramatic,
-  // build-up reveal of the subheadline rather than it appearing all at once.
-  const [revealed, setRevealed] = useState(chunks.length > 0 ? 1 : 0);
+  // One phrase on screen at a time, replaced by the next (not accumulated
+  // into the full sentence) — Ali's request for a dramatic, story-style
+  // reveal. Skipped for prefers-reduced-motion, which shows the complete
+  // sentence statically instead of cycling through it.
+  const [index, setIndex] = useState(0);
+  const [leaving, setLeaving] = useState(false);
+  const [reduceMotion, setReduceMotion] = useState(false);
 
   useEffect(() => {
-    setRevealed(chunks.length > 0 ? 1 : 0);
-    if (chunks.length <= 1) return;
-    const id = setInterval(() => {
-      setRevealed((n) => {
-        if (n >= chunks.length) {
-          clearInterval(id);
-          return n;
-        }
-        return n + 1;
-      });
-    }, REVEAL_STEP_MS);
-    return () => clearInterval(id);
-  }, [chunks]);
+    setReduceMotion(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  }, []);
+
+  useEffect(() => {
+    setIndex(0);
+    setLeaving(false);
+    if (reduceMotion || chunks.length <= 1) return;
+
+    let cancelled = false;
+    let timeoutId: ReturnType<typeof setTimeout>;
+
+    function step(i: number) {
+      timeoutId = setTimeout(() => {
+        if (cancelled || i >= chunks.length - 1) return;
+        setLeaving(true);
+        timeoutId = setTimeout(() => {
+          if (cancelled) return;
+          setIndex(i + 1);
+          setLeaving(false);
+          step(i + 1);
+        }, FADE_MS);
+      }, HOLD_MS);
+    }
+    step(0);
+
+    return () => {
+      cancelled = true;
+      clearTimeout(timeoutId);
+    };
+  }, [chunks, reduceMotion]);
 
   return (
     <section className="relative flex min-h-dvh flex-col justify-end overflow-hidden">
@@ -66,12 +88,14 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionar
         <h1 className="display mt-4 text-4xl font-semibold leading-tight sm:text-5xl md:text-6xl">
           {dict.hero.headline}
         </h1>
-        <p className="hero-neon display mx-auto mt-6 max-w-3xl text-2xl font-semibold leading-snug sm:text-4xl md:text-5xl">
-          {chunks.slice(0, revealed).map((chunk, i) => (
-            <span key={i} className="hero-neon-chunk">
-              {chunk}{" "}
+        <p className="hero-neon display mx-auto mt-6 flex min-h-[2lh] max-w-3xl items-center justify-center text-2xl font-semibold leading-snug sm:text-4xl md:text-5xl">
+          {reduceMotion ? (
+            chunks.join(" ")
+          ) : (
+            <span key={index} className={`hero-neon-chunk${leaving ? " is-leaving" : ""}`}>
+              {chunks[index]}
             </span>
-          ))}
+          )}
         </p>
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Link
