@@ -8,7 +8,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import { asset } from "@/lib/asset";
 
 /** How long each phrase stays fully visible before the next replaces it. */
-const HOLD_MS = 700;
+const HOLD_MS = 1200;
 /** Fade duration between phrases — must match `.is-leaving` in globals.css. */
 const FADE_MS = 500;
 
