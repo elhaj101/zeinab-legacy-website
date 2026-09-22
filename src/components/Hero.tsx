@@ -7,16 +7,10 @@ import type { Dictionary } from "@/lib/i18n/dictionary";
 import type { Locale } from "@/lib/i18n/locales";
 import { asset } from "@/lib/asset";
 
-/** How long a normal phrase stays fully visible before the next replaces it. */
-const HOLD_MS = 3400;
-/** "LEGACY" gets its own longer pause as the opening brand moment. */
-const BRAND_HOLD_MS = 3900;
+/** How long each phrase stays fully visible before the next replaces it. */
+const HOLD_MS = 700;
 /** Fade duration between phrases — must match `.is-leaving` in globals.css. */
 const FADE_MS = 500;
-
-function holdMsFor(i: number) {
-  return i === 0 ? BRAND_HOLD_MS : HOLD_MS;
-}
 
 export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const base = `/${locale}`;
@@ -56,7 +50,7 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionar
           setLeaving(false);
           step(next);
         }, FADE_MS);
-      }, holdMsFor(i));
+      }, HOLD_MS);
     }
     step(0);
 
