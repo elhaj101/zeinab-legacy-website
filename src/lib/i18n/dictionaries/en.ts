@@ -19,8 +19,14 @@ const en: Dictionary = {
   hero: {
     eyebrow: "Personal Branding & Business Development",
     headline: "Your brand. Your system. Your LEGACY.",
-    subheadline:
-      "LEGACY is the structured system for coaches, consultants and experts who are serious about building a personal brand — clearly positioned, visible, and with a predictable path to qualified client enquiries.",
+    subheadline: [
+      "LEGACY",
+      "is the structured system for",
+      "coaches, consultants and experts",
+      "who are serious about building a personal brand —",
+      "clearly positioned, visible,",
+      "and with a predictable path to qualified client enquiries.",
+    ],
     ctaApply: "Apply now",
     ctaMethod: "Discover the method",
   },

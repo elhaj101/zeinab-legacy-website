@@ -1,11 +1,38 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import type { Dictionary } from "@/lib/i18n/dictionary";
 import type { Locale } from "@/lib/i18n/locales";
 import { asset } from "@/lib/asset";
 
+/** Milliseconds between each subheadline phrase lighting up. */
+const REVEAL_STEP_MS = 480;
+
 export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const base = `/${locale}`;
+  const chunks = dict.hero.subheadline;
+
+  // Reveals one phrase at a time on mount, each staying lit (see the
+  // `.hero-neon` rules in globals.css) — Ali's request for a dramatic,
+  // build-up reveal of the subheadline rather than it appearing all at once.
+  const [revealed, setRevealed] = useState(chunks.length > 0 ? 1 : 0);
+
+  useEffect(() => {
+    setRevealed(chunks.length > 0 ? 1 : 0);
+    if (chunks.length <= 1) return;
+    const id = setInterval(() => {
+      setRevealed((n) => {
+        if (n >= chunks.length) {
+          clearInterval(id);
+          return n;
+        }
+        return n + 1;
+      });
+    }, REVEAL_STEP_MS);
+    return () => clearInterval(id);
+  }, [chunks]);
 
   return (
     <section className="relative flex min-h-dvh flex-col justify-end overflow-hidden">
@@ -39,7 +66,13 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionar
         <h1 className="display mt-4 text-4xl font-semibold leading-tight sm:text-5xl md:text-6xl">
           {dict.hero.headline}
         </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-lg text-white/85">{dict.hero.subheadline}</p>
+        <p className="hero-neon display mx-auto mt-6 max-w-3xl text-2xl font-semibold leading-snug sm:text-4xl md:text-5xl">
+          {chunks.slice(0, revealed).map((chunk, i) => (
+            <span key={i} className="hero-neon-chunk">
+              {chunk}{" "}
+            </span>
+          ))}
+        </p>
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Link
             href={`${base}/apply`}

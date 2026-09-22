@@ -59,3 +59,51 @@ html[dir="rtl"] {
 .display {
   font-family: var(--font-display);
 }
+
+/* ---------------------------------------------------------------
+   Hero subheadline reveal — Ali's request (2026-09-22): the phrase
+   builds up one chunk at a time (JS-driven, see Hero.tsx) in a glowing
+   neon-white treatment instead of appearing all at once.
+   --------------------------------------------------------------- */
+.hero-neon {
+  color: #fff;
+  text-shadow:
+    0 0 6px rgba(255, 255, 255, 0.9),
+    0 0 16px rgba(255, 255, 255, 0.7),
+    0 0 32px rgba(255, 255, 255, 0.45),
+    0 0 64px rgba(255, 255, 255, 0.25);
+}
+
+.hero-neon-chunk {
+  display: inline-block;
+  opacity: 0;
+  animation: heroNeonFlicker 0.7s ease-out forwards;
+}
+
+@keyframes heroNeonFlicker {
+  0% {
+    opacity: 0;
+    transform: translateY(0.4em);
+  }
+  40% {
+    opacity: 0.5;
+  }
+  55% {
+    opacity: 0.15;
+  }
+  70% {
+    opacity: 0.85;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-neon-chunk {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
