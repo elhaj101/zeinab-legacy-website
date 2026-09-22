@@ -8,9 +8,9 @@ import type { Locale } from "@/lib/i18n/locales";
 import { asset } from "@/lib/asset";
 
 /** How long a normal phrase stays fully visible before the next replaces it. */
-const HOLD_MS = 1400;
+const HOLD_MS = 3400;
 /** "LEGACY" gets its own longer pause as the opening brand moment. */
-const BRAND_HOLD_MS = 1900;
+const BRAND_HOLD_MS = 3900;
 /** Fade duration between phrases — must match `.is-leaving` in globals.css. */
 const FADE_MS = 500;
 
@@ -23,7 +23,8 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionar
   const chunks = dict.hero.subheadline;
 
   // One phrase on screen at a time, replaced by the next (not accumulated
-  // into the full sentence) — a dramatic, story-style reveal. The first
+  // into the full sentence) — a dramatic, story-style reveal that loops
+  // forever (wraps back to "LEGACY" after the last phrase). The first
   // phrase ("LEGACY") renders much larger as a standalone brand moment
   // (see the `index === 0` size override below), then the rest settle
   // into the normal subheadline size. Skipped for prefers-reduced-motion,
@@ -46,13 +47,14 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionar
 
     function step(i: number) {
       timeoutId = setTimeout(() => {
-        if (cancelled || i >= chunks.length - 1) return;
+        if (cancelled) return;
         setLeaving(true);
         timeoutId = setTimeout(() => {
           if (cancelled) return;
-          setIndex(i + 1);
+          const next = (i + 1) % chunks.length;
+          setIndex(next);
           setLeaving(false);
-          step(i + 1);
+          step(next);
         }, FADE_MS);
       }, holdMsFor(i));
     }
