@@ -35,7 +35,6 @@ export interface Dictionary {
   };
 
   hero: {
-    eyebrow: string;
     headline: string;
     /** Phrases revealed one at a time (see Hero.tsx's stagger effect).
         Joined with single spaces, must reconstruct the full sentence. */

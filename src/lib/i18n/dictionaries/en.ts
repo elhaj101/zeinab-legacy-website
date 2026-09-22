@@ -17,7 +17,6 @@ const en: Dictionary = {
   },
 
   hero: {
-    eyebrow: "Personal Branding & Business Development",
     headline: "Your brand. Your system. Your LEGACY.",
     subheadline: [
       "LEGACY",

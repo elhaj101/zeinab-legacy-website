@@ -21,7 +21,6 @@ const ar: Dictionary = {
   },
 
   hero: {
-    eyebrow: "العلامة الشخصية وتطوير الأعمال",
     headline: "علامتك. نظامك. إرثك مع LEGACY.",
     subheadline: [
       "LEGACY",

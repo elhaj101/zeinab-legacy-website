@@ -61,7 +61,7 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionar
   }, [chunks, reduceMotion]);
 
   return (
-    <section className="relative flex min-h-dvh flex-col justify-end overflow-hidden">
+    <section className="relative flex min-h-dvh flex-col overflow-hidden">
       {/* Close-up crop, not the full-length shot: a wide, short hero frame
           only ever shows one thin horizontal slice of a tall photo, and for
           the full-length shot that slice was mostly blank wall above her
@@ -85,14 +85,16 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionar
         className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"
       />
 
-      <div className="relative mx-auto w-full max-w-4xl px-4 pb-16 pt-14 text-center text-white sm:px-6 sm:pb-24">
-        <p className="text-sm font-medium uppercase tracking-wide text-[var(--accent-soft)]">
-          {dict.hero.eyebrow}
-        </p>
-        <h1 className="display mt-4 text-4xl font-semibold leading-tight sm:text-5xl md:text-6xl">
+      {/* Headline fixed at the top of the hero, just under the nav — its own
+          block rather than grouped with the rest, per Ali's request. */}
+      <div className="relative mx-auto w-full max-w-4xl px-4 pt-10 text-center text-white sm:px-6 sm:pt-14">
+        <h1 className="display text-4xl font-semibold leading-tight sm:text-5xl md:text-6xl">
           {dict.hero.headline}
         </h1>
-        <p className="hero-neon display mx-auto mt-6 flex min-h-[2lh] max-w-3xl items-center justify-center text-2xl font-semibold leading-snug sm:text-4xl md:text-5xl">
+      </div>
+
+      <div className="relative mx-auto mt-auto w-full max-w-4xl px-4 pb-16 pt-14 text-center text-white sm:px-6 sm:pb-24">
+        <p className="hero-neon display mx-auto flex min-h-[2lh] max-w-3xl items-center justify-center text-2xl font-semibold leading-snug sm:text-4xl md:text-5xl">
           {reduceMotion ? (
             chunks.join(" ")
           ) : (
