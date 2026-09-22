@@ -61,10 +61,12 @@ html[dir="rtl"] {
 }
 
 /* ---------------------------------------------------------------
-   Hero subheadline reveal — Ali's request (2026-09-22, revised same day):
-   one phrase on screen at a time, each replacing the last (NOT
-   accumulated into the full sentence) — JS-driven in Hero.tsx, glowing
-   neon-white treatment.
+   Hero subheadline reveal — one phrase on screen at a time, each
+   replacing the last (NOT accumulated into the full sentence),
+   JS-driven in Hero.tsx, glowing neon-white treatment. "LEGACY" (the
+   first phrase) gets its own bigger, slower "brand stamp" entrance —
+   see `.hero-neon-chunk--brand`. A smooth, continuous fade throughout —
+   no flicker/strobe.
    --------------------------------------------------------------- */
 .hero-neon {
   color: #fff;
@@ -78,40 +80,49 @@ html[dir="rtl"] {
 .hero-neon-chunk {
   display: inline-block;
   opacity: 0;
-  animation: heroNeonFlicker 0.7s ease-out forwards;
+  animation: heroNeonReveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-neon-chunk--brand {
+  animation: heroNeonRevealBrand 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Fade-out just before Hero.tsx swaps in the next phrase (same element,
    class toggle — not a remount, so this transition actually plays). By
-   the time this class lands, HOLD_MS has already let the flicker-in
-   animation above finish, so there's no conflict between the two. */
+   the time this class lands, the reveal-in animation above has already
+   finished, so there's no conflict between the two. */
 .hero-neon-chunk.is-leaving {
   opacity: 0;
-  transition: opacity 0.3s ease-in;
+  transition: opacity 0.5s ease-in-out;
 }
 
-@keyframes heroNeonFlicker {
-  0% {
+@keyframes heroNeonReveal {
+  from {
     opacity: 0;
-    transform: translateY(0.4em);
+    transform: translateY(0.3em);
   }
-  40% {
-    opacity: 0.5;
-  }
-  55% {
-    opacity: 0.15;
-  }
-  70% {
-    opacity: 0.85;
-  }
-  100% {
+  to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
+/* Same smooth fade, plus a gentle scale-up for extra weight on the
+   opening brand moment — still one continuous ease, no flicker. */
+@keyframes heroNeonRevealBrand {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .hero-neon-chunk {
+  .hero-neon-chunk,
+  .hero-neon-chunk--brand {
     animation: none;
     opacity: 1;
     transform: none;

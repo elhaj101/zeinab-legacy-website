@@ -7,19 +7,27 @@ import type { Dictionary } from "@/lib/i18n/dictionary";
 import type { Locale } from "@/lib/i18n/locales";
 import { asset } from "@/lib/asset";
 
-/** How long each phrase stays fully visible before the next one replaces it. */
-const HOLD_MS = 900;
-/** Crossfade duration between phrases — must match `.is-leaving` in globals.css. */
-const FADE_MS = 300;
+/** How long a normal phrase stays fully visible before the next replaces it. */
+const HOLD_MS = 1400;
+/** "LEGACY" gets its own longer pause as the opening brand moment. */
+const BRAND_HOLD_MS = 1900;
+/** Fade duration between phrases — must match `.is-leaving` in globals.css. */
+const FADE_MS = 500;
+
+function holdMsFor(i: number) {
+  return i === 0 ? BRAND_HOLD_MS : HOLD_MS;
+}
 
 export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const base = `/${locale}`;
   const chunks = dict.hero.subheadline;
 
   // One phrase on screen at a time, replaced by the next (not accumulated
-  // into the full sentence) — Ali's request for a dramatic, story-style
-  // reveal. Skipped for prefers-reduced-motion, which shows the complete
-  // sentence statically instead of cycling through it.
+  // into the full sentence) — a dramatic, story-style reveal. The first
+  // phrase ("LEGACY") renders much larger as a standalone brand moment
+  // (see the `index === 0` size override below), then the rest settle
+  // into the normal subheadline size. Skipped for prefers-reduced-motion,
+  // which shows the complete sentence statically instead of cycling.
   const [index, setIndex] = useState(0);
   const [leaving, setLeaving] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
@@ -46,7 +54,7 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionar
           setLeaving(false);
           step(i + 1);
         }, FADE_MS);
-      }, HOLD_MS);
+      }, holdMsFor(i));
     }
     step(0);
 
@@ -92,7 +100,16 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionar
           {reduceMotion ? (
             chunks.join(" ")
           ) : (
-            <span key={index} className={`hero-neon-chunk${leaving ? " is-leaving" : ""}`}>
+            <span
+              key={index}
+              className={[
+                "hero-neon-chunk",
+                leaving ? "is-leaving" : "",
+                index === 0 ? "hero-neon-chunk--brand text-6xl font-bold sm:text-8xl md:text-9xl" : "",
+              ]
+                .filter(Boolean)
+                .join(" ")}
+            >
               {chunks[index]}
             </span>
           )}
