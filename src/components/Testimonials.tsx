@@ -14,14 +14,21 @@ export default function Testimonials({ dict }: { dict: Dictionary }) {
 
   return (
     <section className="mx-auto flex min-h-dvh max-w-5xl flex-col justify-center px-4 py-16 sm:px-6">
-      <p className="text-sm font-medium uppercase tracking-wide text-[var(--accent)]">{d.eyebrow}</p>
-      <h2 className="display mt-2 text-3xl font-semibold sm:text-4xl">{d.headline}</h2>
+      <p data-scramble className="text-sm font-medium uppercase tracking-wide text-[var(--accent)]">
+        {d.eyebrow}
+      </p>
+      <h2 data-anim="words" className="display mt-2 text-3xl font-semibold sm:text-4xl">
+        {d.headline}
+      </h2>
 
-      <div className="mt-6 rounded-xl border-2 border-dashed border-[var(--line)] bg-[var(--bg-alt)] px-4 py-3 text-sm text-[var(--muted)]">
+      <div
+        data-anim="rise"
+        className="mt-6 rounded-xl border-2 border-dashed border-[var(--line)] bg-[var(--bg-alt)] px-4 py-3 text-sm text-[var(--muted)]"
+      >
         {d.placeholderNote}
       </div>
 
-      <div className="mt-8 grid gap-6 sm:grid-cols-3">
+      <div data-anim="stagger" className="mt-8 grid gap-6 sm:grid-cols-3">
         {[0, 1, 2].map((i) => (
           <div
             key={i}

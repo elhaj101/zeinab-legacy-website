@@ -45,8 +45,8 @@ export default function LanguageSwitcher({
           aria-current={l === locale ? "true" : undefined}
           className={
             l === locale
-              ? "font-semibold text-[var(--fg)]"
-              : "text-[var(--muted)] hover:text-[var(--fg)]"
+              ? "nav-link font-semibold text-[var(--fg)]"
+              : "nav-link text-[var(--muted)] hover:text-[var(--fg)]"
           }
         >
           {LOCALE_NAMES[l]}

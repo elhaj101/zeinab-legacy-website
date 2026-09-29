@@ -3,24 +3,46 @@
 /* ---------------------------------------------------------------
    LEGACY (Seinab Dabbous) — design tokens
 
-   PLACEHOLDER BRANDING. Her brief explicitly says the final logo, brand
-   colours, fonts and photo set are not yet confirmed — only the target
-   *feel* is: "premium, warm, modern, elegant — not cold/corporate."
-   Every value below lives here, in ONE file, so swapping in the real
-   brand assets later is a single edit, not a hunt through components.
+   BLACK AND WHITE (Ali, 2026-09-29): every colour on the site is now a
+   shade of black, white or grey. Her brief still says the final brand
+   colours are not confirmed, so this stays a placeholder palette, kept in
+   ONE file: swapping in real brand colours later is a single edit here.
+
+   Sections that should be black just get the `theme-dark` class: it flips
+   the tokens below (background, text, lines, buttons), so nothing inside
+   needs to know which theme it sits in.
    --------------------------------------------------------------- */
 :root {
-  --bg: #faf7f4; /* warm ivory, not stark white */
-  --bg-alt: #f1e9e2; /* subtle warm section shift */
-  --fg: #241f1c; /* warm near-black */
-  --muted: #7a6f68;
-  --accent: #b3714a; /* warm terracotta placeholder accent */
-  --accent-soft: #e3c9b8;
-  --line: rgba(36, 31, 28, 0.12);
+  --bg: #ffffff;
+  --bg-alt: #f2f2f2; /* light grey section shift */
+  --fg: #000000;
+  --muted: #5c5c5c;
+  --accent: #000000; /* eyebrow labels, links, markers */
+  --accent-soft: #a6a6a6; /* big decorative numbers */
+  --line: rgba(0, 0, 0, 0.14);
+
+  /* Buttons: black on light sections, white on dark ones. */
+  --btn-bg: #000000;
+  --btn-fg: #ffffff;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
 
   /* Latin by default — Arabic pages switch to Cairo via [dir="rtl"] below. */
   --font-display: var(--font-display-latin);
   --font-body: var(--font-body-latin);
+}
+
+.theme-dark {
+  --bg: #000000;
+  --bg-alt: #0d0d0d;
+  --fg: #ffffff;
+  --muted: #a8a8a8;
+  --accent: #ffffff;
+  --accent-soft: #7a7a7a;
+  --line: rgba(255, 255, 255, 0.22);
+  --btn-bg: #ffffff;
+  --btn-fg: #000000;
+  color: var(--fg);
 }
 
 html[dir="rtl"] {
@@ -58,6 +80,212 @@ html[dir="rtl"] {
 
 .display {
   font-family: var(--font-display);
+}
+
+/* Keyboard focus: a plain outline in the current text colour, so it flips
+   with the theme (black on light sections, white on dark ones). */
+:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+/* ---------------------------------------------------------------
+   Buttons. `.btn` is the shape; the variant sets the colours. On hover a
+   fill wipes up from the bottom edge and the text flips colour: black
+   button goes white, white goes black. Pure CSS, no JS.
+   --------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid var(--btn-bg);
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  line-height: 1.25;
+  text-align: center;
+  background-color: var(--btn-bg);
+  color: var(--btn-fg);
+  background-image: linear-gradient(var(--btn-fg), var(--btn-fg));
+  background-repeat: no-repeat;
+  background-position: 50% 100%;
+  background-size: 100% 0%;
+  transition:
+    background-size 0.45s var(--ease),
+    color 0.45s var(--ease);
+}
+
+.btn:hover {
+  background-size: 100% 100%;
+  color: var(--btn-bg);
+}
+
+.btn-outline {
+  border-color: var(--fg);
+  background-color: transparent;
+  color: var(--fg);
+  background-image: linear-gradient(var(--fg), var(--fg));
+}
+
+.btn-outline:hover {
+  color: var(--bg);
+}
+
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+/* ---------------------------------------------------------------
+   Header: the logo is dark grey on transparent, so force it to pure
+   black (or white in dark sections). It shrinks a little once the page
+   has scrolled (toggled by PageMotion).
+   --------------------------------------------------------------- */
+.logo-mono {
+  filter: brightness(0);
+}
+
+.theme-dark .logo-mono {
+  filter: brightness(0) invert(1);
+}
+
+.site-logo {
+  height: 2.5rem;
+  width: auto;
+  transition: height 0.4s var(--ease);
+}
+
+@media (min-width: 640px) {
+  .site-logo {
+    height: 3rem;
+  }
+}
+
+.site-header[data-shrunk="true"] .site-logo {
+  height: 2rem;
+}
+
+/* Text links in the header and inside sections: a line grows under the word on hover. */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: -4px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.4s var(--ease);
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+html[dir="rtl"] .nav-link::after {
+  transform-origin: right center;
+}
+
+/* ---------------------------------------------------------------
+   Accordion: the panel always sits in the page (better for screen
+   readers and search) and grows from zero height when opened.
+   --------------------------------------------------------------- */
+.acc-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s var(--ease);
+}
+
+.acc-panel[data-open="true"] {
+  grid-template-rows: 1fr;
+}
+
+.acc-panel > div {
+  overflow: hidden;
+}
+
+/* ---------------------------------------------------------------
+   Page effects (see src/effects/registry.ts for the on/off switches)
+   --------------------------------------------------------------- */
+
+/* Hero intro: the elements marked data-intro start hidden ONLY when the
+   page is going to animate (the inline script in SetHtmlLangDir sets
+   data-motion="on" before first paint, and never for reduced motion). The
+   failsafe animation shows them anyway after 3s, in case scripts fail. */
+html[data-motion="on"] [data-intro] {
+  opacity: 0;
+  animation: introFailsafe 0s linear 3s forwards;
+}
+
+@keyframes introFailsafe {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Thin progress line along the top of the screen, over the (always white) header. */
+.scroll-progress {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  z-index: 60;
+  height: 3px;
+  background: #000;
+  transform: scaleX(0);
+  transform-origin: left center;
+  pointer-events: none;
+}
+
+html[dir="rtl"] .scroll-progress {
+  transform-origin: right center;
+}
+
+/* Word band between sections. Always laid out left to right so the loop is
+   seamless; each item carries its own text direction. */
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  direction: ltr;
+}
+
+.marquee-track {
+  display: inline-flex;
+  will-change: transform;
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding-inline-end: 1.25rem;
+  font-size: clamp(1.25rem, 3.5vw, 2.75rem);
+  line-height: 1.2;
+}
+
+.marquee-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--fg);
+}
+
+/* Outlined Arabic letters overlap where they join; keep them solid. */
+html[dir="rtl"] .marquee-outline {
+  color: var(--fg);
+  -webkit-text-stroke: 0;
 }
 
 /* ---------------------------------------------------------------
@@ -126,5 +354,11 @@ html[dir="rtl"] {
     animation: none;
     opacity: 1;
     transform: none;
+  }
+
+  .btn,
+  .acc-panel,
+  .site-logo {
+    transition: none;
   }
 }

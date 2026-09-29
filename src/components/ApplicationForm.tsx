@@ -84,7 +84,7 @@ export default function ApplicationForm({ locale, dict }: { locale: Locale; dict
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="w-full rounded-full bg-[var(--accent)] px-6 py-3 font-medium text-white transition hover:opacity-90 disabled:opacity-60 sm:w-auto"
+        className="btn w-full disabled:opacity-60 sm:w-auto"
       >
         {status === "submitting" ? f.submitting : f.submit}
       </button>
@@ -111,7 +111,7 @@ function Field({
         name={name}
         type={type}
         required={required}
-        className="mt-2 w-full rounded-lg border border-[var(--line)] bg-[var(--bg)] px-4 py-3 text-base font-normal"
+        className="mt-2 w-full rounded-lg border border-[var(--line)] bg-[var(--bg)] px-4 py-3 text-base font-normal transition-colors focus:border-[var(--fg)]"
       />
     </label>
   );
@@ -126,7 +126,7 @@ function TextAreaField({ label, name, required }: { label: string; name: string;
         name={name}
         required={required}
         rows={4}
-        className="mt-2 w-full rounded-lg border border-[var(--line)] bg-[var(--bg)] px-4 py-3 text-base font-normal"
+        className="mt-2 w-full rounded-lg border border-[var(--line)] bg-[var(--bg)] px-4 py-3 text-base font-normal transition-colors focus:border-[var(--fg)]"
       />
     </label>
   );
@@ -146,7 +146,7 @@ function SelectField({
       {label}
       <select
         name={name}
-        className="mt-2 w-full rounded-lg border border-[var(--line)] bg-[var(--bg)] px-4 py-3 text-base font-normal"
+        className="mt-2 w-full rounded-lg border border-[var(--line)] bg-[var(--bg)] px-4 py-3 text-base font-normal transition-colors focus:border-[var(--fg)]"
       >
         {options.map(([value, text]) => (
           <option key={value} value={value}>

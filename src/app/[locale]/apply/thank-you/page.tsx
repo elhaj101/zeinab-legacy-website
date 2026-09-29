@@ -18,7 +18,7 @@ export default async function ThankYouPage({
       <p className="mt-4 text-[var(--muted)]">{dict.thankYou.body}</p>
       <Link
         href={`/${raw}`}
-        className="mt-8 inline-block rounded-full border border-[var(--line)] px-6 py-3 font-medium transition hover:bg-[var(--bg-alt)]"
+        className="btn btn-outline mt-8"
       >
         {dict.thankYou.backHome}
       </Link>

@@ -8,13 +8,18 @@ export default function BeforeAfter({ locale, dict }: { locale: Locale; dict: Di
 
   return (
     <section className="mx-auto flex min-h-dvh max-w-5xl flex-col justify-center px-4 py-16 sm:px-6">
-      <p className="text-sm font-medium uppercase tracking-wide text-[var(--accent)]">{d.eyebrow}</p>
-      <h2 className="display mt-2 max-w-2xl text-3xl font-semibold sm:text-4xl">{d.headline}</h2>
+      <p data-scramble className="text-sm font-medium uppercase tracking-wide text-[var(--accent)]">
+        {d.eyebrow}
+      </p>
+      <h2 data-anim="words" className="display mt-2 max-w-2xl text-3xl font-semibold sm:text-4xl">
+        {d.headline}
+      </h2>
 
       {/* Stacked on mobile, side by side from sm: up — mirrors the
           reference site's before/after columns collapsing to a single
-          column below its tablet breakpoint. */}
-      <div className="mt-10 grid gap-6 sm:grid-cols-2">
+          column below its tablet breakpoint. The "after" card is the black
+          one: the whole point of the section is the contrast between them. */}
+      <div data-anim="stagger" className="mt-10 grid gap-6 sm:grid-cols-2">
         <div className="rounded-2xl border border-[var(--line)] p-6">
           <p className="text-sm font-semibold uppercase tracking-wide text-[var(--muted)]">
             {d.beforeLabel}
@@ -31,7 +36,7 @@ export default function BeforeAfter({ locale, dict }: { locale: Locale; dict: Di
           </ul>
         </div>
 
-        <div className="rounded-2xl border border-[var(--accent-soft)] bg-[var(--bg-alt)] p-6">
+        <div className="theme-dark rounded-2xl border border-[var(--fg)] bg-[var(--bg)] p-6">
           <p className="text-sm font-semibold uppercase tracking-wide text-[var(--accent)]">
             {d.afterLabel}
           </p>
@@ -48,11 +53,8 @@ export default function BeforeAfter({ locale, dict }: { locale: Locale; dict: Di
         </div>
       </div>
 
-      <div className="mt-8 text-center sm:text-left rtl:sm:text-right">
-        <Link
-          href={`${base}/apply`}
-          className="inline-block rounded-full bg-[var(--accent)] px-6 py-3 font-medium text-white transition hover:opacity-90"
-        >
+      <div data-anim="rise" className="mt-8 text-center sm:text-left rtl:sm:text-right">
+        <Link href={`${base}/apply`} className="btn">
           {d.cta}
         </Link>
       </div>

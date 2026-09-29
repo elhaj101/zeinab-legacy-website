@@ -6,6 +6,10 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsent";
 import SetHtmlLangDir from "@/components/SetHtmlLangDir";
+import { MagicDust } from "@/components/motion/MagicDust";
+import { PageMotion, ScrollProgress } from "@/components/motion/PageMotion";
+import { SmoothScroll } from "@/components/motion/SmoothScroll";
+import { Effects } from "@/effects/Effects";
 
 // Required for `output: export` (GitHub Pages preview build) — tells Next
 // which [locale] values to prerender. Harmless no-op for the normal server
@@ -41,10 +45,18 @@ export default async function LocaleLayout({
     // being reused across a client-side transition between locales.
     <div key={raw}>
       <SetHtmlLangDir locale={raw} dir={dirFor(raw)} />
-      <Nav locale={raw} dict={dict} />
-      <main>{children}</main>
-      <Footer locale={raw} dict={dict} />
+      {/* Motion: smooth scrolling wraps the page; PageMotion (GSAP), Effects (Anime.js)
+          and MagicDust act on the markup. All of it is switched in src/effects/registry.ts. */}
+      <SmoothScroll>
+        <ScrollProgress />
+        <Nav locale={raw} dict={dict} />
+        <main>{children}</main>
+        <Footer locale={raw} dict={dict} />
+      </SmoothScroll>
       <CookieConsent dict={dict} />
+      <PageMotion locale={raw} />
+      <Effects locale={raw} />
+      <MagicDust />
     </div>
   );
 }

@@ -34,14 +34,14 @@ export default function CookieConsent({ dict }: { dict: Dictionary }) {
           <button
             type="button"
             onClick={() => choose("declined")}
-            className="rounded-full border border-[var(--line)] px-4 py-2 text-sm"
+            className="btn btn-outline btn-sm"
           >
             {dict.cookie.decline}
           </button>
           <button
             type="button"
             onClick={() => choose("accepted")}
-            className="rounded-full bg-[var(--accent)] px-4 py-2 text-sm text-white"
+            className="btn btn-sm"
           >
             {dict.cookie.accept}
           </button>

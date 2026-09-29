@@ -10,6 +10,10 @@ import { BOOKING_EMBED_URL } from "@/config/booking";
  * separate Booking section — same booking-tool-pending logic (config/
  * booking.ts), just presented as this step's action instead of its own
  * full section.
+ *
+ * Where the three steps sit side by side, a thin line draws from badge to
+ * badge as the section scrolls, with a spark riding it (StepsThread). On a
+ * phone, where the steps stack, the line is hidden.
  */
 export default function NextSteps({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const base = `/${locale}`;
@@ -18,43 +22,69 @@ export default function NextSteps({ locale, dict }: { locale: Locale; dict: Dict
 
   return (
     <section className="mx-auto flex min-h-dvh max-w-5xl flex-col justify-center px-4 py-16 sm:px-6">
-      <p className="text-sm font-medium uppercase tracking-wide text-[var(--accent)]">{d.eyebrow}</p>
-      <h2 className="display mt-2 text-3xl font-semibold sm:text-4xl">{d.headline}</h2>
+      <p data-scramble className="text-sm font-medium uppercase tracking-wide text-[var(--accent)]">
+        {d.eyebrow}
+      </p>
+      <h2 data-anim="words" className="display mt-2 text-3xl font-semibold sm:text-4xl">
+        {d.headline}
+      </h2>
 
-      <ol className="mt-10 grid gap-6 sm:grid-cols-3">
-        {d.steps.map((step, i) => (
-          <li key={step.title} className="rounded-2xl border border-[var(--line)] p-6">
-            <span className="display text-3xl font-semibold text-[var(--accent-soft)]">
-              {i + 1}
-            </span>
-            <h3 className="mt-3 text-lg font-semibold">{step.title}</h3>
-            <p className="mt-2 text-sm text-[var(--muted)]">{step.description}</p>
+      <div data-thread className="relative mt-10">
+        <svg
+          aria-hidden
+          className="pointer-events-none absolute inset-0 hidden h-full w-full overflow-visible text-[var(--fg)] opacity-0 sm:block"
+          fill="none"
+        >
+          <path d="" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        </svg>
+        <span
+          aria-hidden
+          data-thread-spark
+          className="pointer-events-none absolute left-0 top-0 -ml-1.5 -mt-1.5 hidden h-3 w-3 rounded-full bg-[var(--fg)] opacity-0 shadow-[0_0_14px_3px_rgba(0,0,0,0.3)] sm:block"
+        />
 
-            {i === 1 &&
-              (BOOKING_EMBED_URL ? (
-                <a
-                  href={BOOKING_EMBED_URL}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-4 inline-block text-sm font-medium text-[var(--accent)] underline"
+        <ol data-anim="stagger" className="relative grid gap-6 sm:grid-cols-3">
+          {d.steps.map((step, i) => (
+            // Two layers on purpose: the <li> is moved by the scroll reveal (GSAP), the card inside
+            // is tilted by the mouse (Anime.js). Two libraries never write the same element.
+            <li key={step.title} className="flex">
+              <div data-tilt-card className="w-full rounded-2xl border border-[var(--line)] p-6">
+                <span
+                  data-thread-stop
+                  className="display relative z-10 flex h-11 w-11 items-center justify-center rounded-full border border-[var(--fg)] bg-[var(--bg)] text-xl font-semibold"
                 >
-                  {b.ctaAvailable}
-                </a>
-              ) : (
-                <p className="mt-4 text-xs text-[var(--muted)]">{b.comingSoonNote}</p>
-              ))}
+                  {i + 1}
+                </span>
+                <h3 className="mt-4 text-lg font-semibold">{step.title}</h3>
+                <p className="mt-2 text-sm text-[var(--muted)]">{step.description}</p>
 
-            {i === 0 && (
-              <Link
-                href={`${base}/apply`}
-                className="mt-4 inline-block text-sm font-medium text-[var(--accent)] underline"
-              >
-                {dict.hero.ctaApply}
-              </Link>
-            )}
-          </li>
-        ))}
-      </ol>
+                {i === 1 &&
+                  (BOOKING_EMBED_URL ? (
+                    <a
+                      href={BOOKING_EMBED_URL}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="nav-link mt-4 inline-block text-sm font-medium text-[var(--accent)]"
+                    >
+                      {b.ctaAvailable}
+                    </a>
+                  ) : (
+                    <p className="mt-4 text-xs text-[var(--muted)]">{b.comingSoonNote}</p>
+                  ))}
+
+                {i === 0 && (
+                  <Link
+                    href={`${base}/apply`}
+                    className="nav-link mt-4 inline-block text-sm font-medium text-[var(--accent)]"
+                  >
+                    {dict.hero.ctaApply}
+                  </Link>
+                )}
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
     </section>
   );
 }

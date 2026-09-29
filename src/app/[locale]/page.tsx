@@ -12,6 +12,8 @@ import WhoFor from "@/components/WhoFor";
 import NextSteps from "@/components/NextSteps";
 import Faq from "@/components/Faq";
 import FinalCta from "@/components/FinalCta";
+import Marquee from "@/components/motion/Marquee";
+import { dirFor } from "@/lib/i18n/locales";
 
 // Section order follows the reference site (mymiapage.de/social-media-kurs)
 // that Zeinab's own brief names as her liked direction: hero → before/after
@@ -32,6 +34,7 @@ export default async function HomePage({
   return (
     <>
       <Hero locale={raw} dict={dict} />
+      <Marquee headline={dict.hero.headline} rtl={dirFor(raw) === "rtl"} />
       <BeforeAfter locale={raw} dict={dict} />
       <WhyLegacy dict={dict} />
       <Method dict={dict} />

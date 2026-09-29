@@ -32,6 +32,9 @@ import type { Locale } from "@/lib/i18n/locales";
  * Three mechanisms, matching el-haj-international's SetHtmlLangDir:
  *  1. An inline script — runs during HTML parsing, before first paint.
  *  2. This layout effect — backstop for client-side transitions.
+ *  The same inline script also sets data-motion="on" on <html> unless the
+ *  visitor asked for reduced motion: globals.css hides the hero intro
+ *  elements only in that case, so they never flash before they animate.
  *  (El-haj-international's Nav also sets these directly in its language-
  *  toggle click handler as mechanism 3; not needed here since this site's
  *  LanguageSwitcher does a full page load rather than a soft navigation.)
@@ -52,7 +55,9 @@ export default function SetHtmlLangDir({
     <InlineScript
       html={`(function(){try{var e=document.documentElement;e.lang=${JSON.stringify(
         locale,
-      )};e.dir=${JSON.stringify(dir)}}catch(_){}})()`}
+      )};e.dir=${JSON.stringify(
+        dir,
+      )};if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches)e.setAttribute("data-motion","on")}catch(_){}})()`}
     />
   );
 }

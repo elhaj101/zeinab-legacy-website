@@ -19,8 +19,8 @@ export default function Nav({ locale, dict }: { locale: Locale; dict: Dictionary
   ];
 
   return (
-    <header className="sticky top-0 z-40 border-b border-[var(--line)] bg-[var(--bg)]/90 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
+    <header className="site-header sticky top-0 z-40 border-b border-[var(--line)] bg-[var(--bg)]/90 backdrop-blur">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
         <Link href={base} aria-label="LEGACY">
           <Image
             src={asset("/images/legacy-logo.png")}
@@ -28,20 +28,17 @@ export default function Nav({ locale, dict }: { locale: Locale; dict: Dictionary
             width={225}
             height={315}
             priority
-            className="h-10 w-auto sm:h-12"
+            className="site-logo logo-mono"
           />
         </Link>
 
         <nav className="hidden items-center gap-6 text-sm sm:flex">
           {links.map((l) => (
-            <a key={l.href} href={l.href} className="text-[var(--muted)] hover:text-[var(--fg)]">
+            <a key={l.href} href={l.href} className="nav-link text-[var(--fg)]">
               {l.label}
             </a>
           ))}
-          <Link
-            href={`${base}/apply`}
-            className="rounded-full bg-[var(--accent)] px-4 py-2 text-white transition hover:opacity-90"
-          >
+          <Link href={`${base}/apply`} className="btn btn-sm">
             {dict.nav.apply}
           </Link>
           <LanguageSwitcher locale={locale} label={dict.nav.languageSwitcher} />
@@ -53,10 +50,7 @@ export default function Nav({ locale, dict }: { locale: Locale; dict: Dictionary
             secondary links (method/about/offers) and language switcher
             collapse. */}
         <div className="flex items-center gap-3 sm:hidden">
-          <Link
-            href={`${base}/apply`}
-            className="rounded-full bg-[var(--accent)] px-4 py-2 text-sm text-white transition hover:opacity-90"
-          >
+          <Link href={`${base}/apply`} className="btn btn-sm">
             {dict.nav.apply}
           </Link>
           <button
@@ -74,7 +68,7 @@ export default function Nav({ locale, dict }: { locale: Locale; dict: Dictionary
       {open && (
         <nav id="mobile-nav" className="flex flex-col gap-4 border-t border-[var(--line)] px-4 py-4 sm:hidden">
           {links.map((l) => (
-            <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-[var(--muted)]">
+            <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-[var(--fg)]">
               {l.label}
             </a>
           ))}

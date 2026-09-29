@@ -6,15 +6,16 @@ export default function FinalCta({ locale, dict }: { locale: Locale; dict: Dicti
   const d = dict.finalCta;
 
   return (
-    <section className="flex min-h-dvh flex-col justify-center border-t border-[var(--line)] bg-[var(--bg)]">
+    <section className="theme-dark flex min-h-dvh flex-col justify-center border-t border-[var(--line)] bg-[var(--bg)]">
       <div className="mx-auto w-full max-w-2xl px-4 py-16 text-center sm:px-6">
-        <h2 className="display text-3xl font-semibold sm:text-4xl">{d.headline}</h2>
-        <Link
-          href={`/${locale}/apply`}
-          className="mt-6 inline-block rounded-full bg-[var(--accent)] px-8 py-4 text-lg font-medium text-white transition hover:opacity-90"
-        >
-          {d.cta}
-        </Link>
+        <h2 data-anim="words" className="display text-3xl font-semibold sm:text-4xl">
+          {d.headline}
+        </h2>
+        <div data-anim="rise" className="mt-8">
+          <Link href={`/${locale}/apply`} className="btn btn-lg">
+            {d.cta}
+          </Link>
+        </div>
       </div>
     </section>
   );

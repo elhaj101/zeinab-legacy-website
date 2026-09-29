@@ -8,31 +8,36 @@ export default function Offers({ locale, dict }: { locale: Locale; dict: Diction
   return (
     <section
       id="offers"
-      className="flex min-h-dvh flex-col justify-center border-t border-[var(--line)] bg-[var(--bg-alt)]"
+      className="theme-dark flex min-h-dvh flex-col justify-center border-t border-[var(--line)] bg-[var(--bg)]"
     >
       <div className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
-        <p className="text-sm font-medium uppercase tracking-wide text-[var(--accent)]">
+        <p data-scramble className="text-sm font-medium uppercase tracking-wide text-[var(--accent)]">
           {dict.offers.eyebrow}
         </p>
-        <h2 className="display mt-2 text-3xl font-semibold sm:text-4xl">{dict.offers.headline}</h2>
-        <p className="mt-4 max-w-2xl text-[var(--muted)]">{dict.offers.intro}</p>
+        <h2 data-anim="words" className="display mt-2 text-3xl font-semibold sm:text-4xl">
+          {dict.offers.headline}
+        </h2>
+        <p data-anim="rise" className="mt-4 max-w-2xl text-[var(--muted)]">
+          {dict.offers.intro}
+        </p>
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-3">
+        <div data-anim="stagger" className="mt-10 grid gap-6 sm:grid-cols-3">
           {dict.offers.items.map((offer) => (
-            <div
-              key={offer.name}
-              className="flex flex-col rounded-2xl border border-[var(--line)] bg-[var(--bg)] p-6"
-            >
-              <h3 className="text-lg font-semibold">{offer.name}</h3>
-              <p className="display mt-2 text-2xl font-semibold">{offer.price}</p>
-              <p className="text-sm text-[var(--muted)]">{offer.cadence}</p>
-              <p className="mt-4 flex-1 text-sm text-[var(--muted)]">{offer.description}</p>
-              <Link
-                href={`${base}/apply`}
-                className="mt-6 rounded-full border border-[var(--line)] px-4 py-2 text-center text-sm font-medium transition hover:bg-[var(--bg-alt)]"
+            // Two layers on purpose: the outer one is moved by the scroll reveal (GSAP), the inner
+            // one is tilted by the mouse (Anime.js). Two libraries never write the same element.
+            <div key={offer.name} className="flex">
+              <div
+                data-tilt-card
+                className="flex w-full flex-col rounded-2xl border border-[var(--line)] bg-[var(--bg-alt)] p-6"
               >
-                {dict.hero.ctaApply}
-              </Link>
+                <h3 className="text-lg font-semibold">{offer.name}</h3>
+                <p className="display mt-2 text-2xl font-semibold">{offer.price}</p>
+                <p className="text-sm text-[var(--muted)]">{offer.cadence}</p>
+                <p className="mt-4 flex-1 text-sm text-[var(--muted)]">{offer.description}</p>
+                <Link href={`${base}/apply`} className="btn btn-outline btn-sm mt-6">
+                  {dict.hero.ctaApply}
+                </Link>
+              </div>
             </div>
           ))}
         </div>
