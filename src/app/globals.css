@@ -163,7 +163,12 @@ html[dir="rtl"] {
 .site-logo {
   height: 2.5rem;
   width: auto;
-  transition: height 0.4s var(--ease);
+  transform-origin: left center;
+  transition: transform 0.4s var(--ease);
+}
+
+html[dir="rtl"] .site-logo {
+  transform-origin: right center;
 }
 
 @media (min-width: 640px) {
@@ -172,8 +177,10 @@ html[dir="rtl"] {
   }
 }
 
+/* Scaled, not resized: changing the height would change the page height and make every scroll
+   trigger re-measure. */
 .site-header[data-shrunk="true"] .site-logo {
-  height: 2rem;
+  transform: scale(0.75);
 }
 
 /* Text links in the header and inside sections: a line grows under the word on hover. */

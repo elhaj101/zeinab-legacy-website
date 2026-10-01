@@ -1,6 +1,7 @@
 "use client";
 
 import { Fragment, useEffect, useState } from "react";
+import { useReducedMotion } from "@/components/motion/useReducedMotion";
 import Image from "next/image";
 import Link from "next/link";
 import type { Dictionary } from "@/lib/i18n/dictionary";
@@ -24,17 +25,13 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionar
   // (see the `index === 0` size override below), then the rest settle
   // into the normal subheadline size. Skipped for prefers-reduced-motion,
   // which shows the complete sentence statically instead of cycling.
+  // The cycle always starts from the first phrase: the locale layout is keyed by locale, so a
+  // language switch remounts this component rather than reusing its state.
   const [index, setIndex] = useState(0);
   const [leaving, setLeaving] = useState(false);
-  const [reduceMotion, setReduceMotion] = useState(false);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
-    setReduceMotion(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
-  }, []);
-
-  useEffect(() => {
-    setIndex(0);
-    setLeaving(false);
     if (reduceMotion || chunks.length <= 1) return;
 
     let cancelled = false;
@@ -75,6 +72,7 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionar
           alt="Seinab Dabbous"
           fill
           priority
+          fetchPriority="high"
           sizes="100vw"
           className="object-cover"
           // 45% keeps her face in the upper part of the frame, away from the

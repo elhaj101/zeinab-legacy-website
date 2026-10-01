@@ -12,7 +12,7 @@ export default function InlineScript({ html }: { html: string }) {
     <script
       type={typeof window === "undefined" ? "text/javascript" : "text/plain"}
       suppressHydrationWarning
-      // eslint-disable-next-line react/no-danger -- static, locally-authored script text, not user input
+       
       dangerouslySetInnerHTML={{ __html: html }}
     />
   );

@@ -41,6 +41,7 @@ export default function ApplicationForm({ locale, dict }: { locale: Locale; dict
       // comment for why: a client-side soft navigation between locale-
       // sensitive routes was observed to occasionally render an internally
       // inconsistent page here too.
+      // eslint-disable-next-line @next/next/no-location-assign-relative-destination -- deliberate full page load, see above
       window.location.href = `/${locale}/apply/thank-you`;
     } catch {
       setStatus("error");

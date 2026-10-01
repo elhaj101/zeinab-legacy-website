@@ -22,7 +22,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: "missing_fields", missing }, { status: 400 });
   }
 
-  // eslint-disable-next-line no-console -- intentional dev-only visibility until real storage exists
+   
   console.log("[apply] stub submission received:", body);
 
   return NextResponse.json({ ok: true });

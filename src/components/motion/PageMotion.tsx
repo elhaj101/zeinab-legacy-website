@@ -98,6 +98,9 @@ export function PageMotion({ locale }: { locale: string }) {
               ease: "power4.out",
               stagger: 0.05,
               scrollTrigger: once(el),
+              // Put the heading back to plain text once it has landed: the dozens of wrapper
+              // elements per heading otherwise stay in the page and slow every style update.
+              onComplete: () => split.revert(),
             });
           }
         }
@@ -141,18 +144,35 @@ export function PageMotion({ locale }: { locale: string }) {
             const loop = gsap.fromTo(
               track,
               { xPercent: rtl ? -50 : 0 },
-              { xPercent: rtl ? 0 : -50, ease: "none", duration: 36, repeat: -1 },
+              { xPercent: rtl ? 0 : -50, ease: "none", duration: 36, repeat: -1, paused: true },
             );
+            // Scrolling makes the band speed up in the direction of travel, then it settles back.
+            // One ticker function eases the speed, and it only runs while the band is on screen.
+            let speed = 1;
+            let target = 1;
+            const ease = () => {
+              target += (1 - target) * 0.06;
+              speed += (target - speed) * 0.2;
+              loop.timeScale(speed);
+            };
             ScrollTrigger.create({
-              start: 0,
-              end: 1e7,
+              trigger: track.parentElement,
+              start: "top bottom",
+              end: "bottom top",
+              onToggle(self) {
+                if (self.isActive) {
+                  loop.play();
+                  gsap.ticker.add(ease);
+                } else {
+                  loop.pause();
+                  gsap.ticker.remove(ease);
+                }
+              },
               onUpdate(self) {
-                // Scrolling makes the band lean into the direction of travel, then it settles back.
-                const boost = gsap.utils.clamp(-6, 6, self.getVelocity() / 350);
-                loop.timeScale(1 + boost);
-                gsap.to(loop, { timeScale: 1, duration: 0.9, ease: "power2.out", overwrite: true });
+                target = 1 + gsap.utils.clamp(-6, 6, self.getVelocity() / 350);
               },
             });
+            undo.push(() => gsap.ticker.remove(ease));
           }
         }
 

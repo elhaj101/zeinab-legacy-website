@@ -14,11 +14,18 @@ const basePath = isStaticExport ? "/zeinab-legacy-website" : undefined;
 
 const nextConfig: NextConfig = {
   turbopack: { root: __dirname },
+  // Photos come pre-resized as WebP (see src/lib/imageLoader.ts): works the same with or without
+  // an image server, and phones get files sized for their screen.
+  images: {
+    loader: "custom",
+    loaderFile: "./src/lib/imageLoader.ts",
+    deviceSizes: [640, 828, 1080, 1366],
+    imageSizes: [64, 128, 256],
+  },
   ...(isStaticExport && {
     output: "export",
     basePath,
     assetPrefix: basePath,
-    images: { unoptimized: true },
     trailingSlash: true,
   }),
 };

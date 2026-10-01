@@ -1,5 +1,6 @@
 import type { Dictionary } from "@/lib/i18n/dictionary";
 import { asset } from "@/lib/asset";
+import LazyVideo from "./LazyVideo";
 
 export default function WhyLegacy({ dict }: { dict: Dictionary }) {
   const d = dict.whyLegacy;
@@ -7,21 +8,17 @@ export default function WhyLegacy({ dict }: { dict: Dictionary }) {
   return (
     <section className="theme-dark relative flex min-h-dvh flex-col justify-center overflow-hidden border-t border-[var(--line)]">
       {/* Background video (one of Seinab's own clips, per Ali's request) —
-          autoplay requires muted + playsInline for mobile browsers.
+          it only downloads once the section is near (LazyVideo).
           Vertical source (9:16) cropped by object-cover; the section is
           much wider than tall, so this zooms in — revisit object-position
           once someone's actually watched where the subject sits in frame.
           The wrapper is taller than the section so it can drift slowly
           while the section scrolls past (PageMotion, data-parallax). */}
       <div data-parallax className="absolute inset-x-0 -top-[10%] h-[120%]">
-        <video
+        <LazyVideo
           className="h-full w-full object-cover"
           src={asset("/videos/why-legacy-background.mp4")}
-          autoPlay
-          loop
-          muted
-          playsInline
-          aria-hidden
+          poster={asset("/videos/why-legacy-poster.webp")}
         />
       </div>
       <div aria-hidden className="absolute inset-0 bg-black/60" />

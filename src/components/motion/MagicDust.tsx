@@ -147,16 +147,29 @@ export function MagicDust() {
       raf = requestAnimationFrame(frame);
     };
 
+    // Page and window height are measured only when they change; reading them on every scroll
+    // event forces the browser to recalculate layout each time.
+    let pageHeight = document.documentElement.scrollHeight;
+    let viewHeight = window.innerHeight;
+    const measure = () => {
+      pageHeight = document.documentElement.scrollHeight;
+      viewHeight = window.innerHeight;
+    };
+    const ro = new ResizeObserver(measure);
+    ro.observe(document.body);
+    window.addEventListener("resize", measure);
+
     const onScroll = () => {
       if (window.scrollY > 0) scrolled = true;
       if (played || !scrolled) return;
-      const bottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
-      if (bottom) play();
+      if (viewHeight + window.scrollY >= pageHeight - 4) play();
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", measure);
+      ro.disconnect();
       cancelAnimationFrame(raf);
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       canvas.style.opacity = "0";

@@ -1,9 +1,31 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import type { Dictionary } from "@/lib/i18n/dictionary";
 
 const STORAGE_KEY = "legacy-cookie-consent";
+
+// The stored choice, read through useSyncExternalStore so the banner follows localStorage without
+// setting state inside an effect. The server render assumes a choice exists (no banner), so the
+// banner never flashes into the static HTML.
+const listeners = new Set<() => void>();
+const subscribe = (cb: () => void) => {
+  listeners.add(cb);
+  window.addEventListener("storage", cb);
+  return () => {
+    listeners.delete(cb);
+    window.removeEventListener("storage", cb);
+  };
+};
+let dismissed = false; // covers browsers that block storage: the click still hides the banner
+const hasChoice = () => {
+  if (dismissed) return true;
+  try {
+    return window.localStorage.getItem(STORAGE_KEY) !== null;
+  } catch {
+    return false;
+  }
+};
 
 /**
  * Minimal placeholder banner. The site sets no analytics/marketing cookies
@@ -13,18 +35,19 @@ const STORAGE_KEY = "legacy-cookie-consent";
  * are actually wired up.
  */
 export default function CookieConsent({ dict }: { dict: Dictionary }) {
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    if (!window.localStorage.getItem(STORAGE_KEY)) setVisible(true);
-  }, []);
+  const chosen = useSyncExternalStore(subscribe, hasChoice, () => true);
 
   function choose(value: "accepted" | "declined") {
-    window.localStorage.setItem(STORAGE_KEY, value);
-    setVisible(false);
+    try {
+      window.localStorage.setItem(STORAGE_KEY, value);
+    } catch {
+      // Storage blocked: the banner just shows again next visit.
+    }
+    dismissed = true;
+    listeners.forEach((cb) => cb());
   }
 
-  if (!visible) return null;
+  if (chosen) return null;
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-50 border-t border-[var(--line)] bg-[var(--bg)] px-4 py-4 shadow-lg sm:px-6">
