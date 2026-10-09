@@ -95,57 +95,90 @@ const de: Dictionary = {
     ],
   },
 
-  clarityCall: {
-    eyebrow: "Legacy Clarity Call",
-    headline: "Werde in einem Gespräch klar über deine Marke",
-    beforeLabel: "Vor deinem Clarity Call",
-    beforePoints: [
-      { title: "Deine Marke wirkt unklar", body: "Du hast ein Business, ein Angebot oder Expertise, aber andere verstehen nicht sofort, wer du bist, was du tust oder warum sie dich wählen sollten." },
-      { title: "Du weißt nicht, was du posten sollst", body: "Du hast viele Ideen, aber keine klare Botschaft, keine Content-Säulen und keine Richtung." },
-      { title: "Deine Profile wirken unverbunden", body: "Dein persönliches Profil, deine Business-Seite und dein Angebot führen deine Zielgruppe nicht zu einem klaren nächsten Schritt." },
-      { title: "Du änderst ständig deine Richtung", body: "Du stellst deine Positionierung infrage, vergleichst dich mit anderen und tust dich schwer, sichere Entscheidungen zu treffen." },
-    ],
-    afterLabel: "Nach deinem Clarity Call",
-    afterPoints: [
-      { title: "Deine Positionierung wird klar", body: "Du weißt, zu wem du sprichst, wofür du bekannt sein willst und was deine Marke unterscheidet." },
-      { title: "Du weißt, was du kommunizieren willst", body: "Du gehst mit klaren Markenbotschaften, strategischen Content-Säulen und einem fokussierten 30-Tage-Plan aus dem Gespräch." },
-      { title: "Deine Profile bekommen einen Zweck", body: "Du verstehst, wie dein Profil, dein Content und dein Call-to-Action Menschen zu deinem Angebot führen sollen." },
-      { title: "Du kennst deinen nächsten Schritt", body: "Du hörst auf, weitere Ideen zu sammeln, und beginnst, die richtigen Prioritäten umzusetzen." },
-    ],
-    format: "Ein vorbereitetes 90-minütiges privates Strategiegespräch",
-    includes: "Enthalten sind ein Markenaudit, NLP-informierte Sichtbarkeits-Impulse und eine schriftliche Zusammenfassung der nächsten Schritte.",
-    cta: "Buche deinen Legacy Clarity Call",
-  },
-
   offers: {
     eyebrow: "Angebote",
     headline: "Drei Wege, mit LEGACY zu arbeiten",
-    intro:
-      "Jedes Angebot ist auf eine andere Phase deines Business abgestimmt — von der ersten Klarheit bis zum skalierten Personal Brand.",
-    items: [
+    intro: "Jedes Angebot passt zu einer anderen Phase: von der ersten Klarheit über den Aufbau deines Systems bis zur privaten Begleitung.",
+    cards: [
       {
+        id: "clarity-call",
         name: "Legacy Clarity Call",
-        price: "",
-        cadence: "einmalig, 90 Minuten",
-        description:
-          "Ein vorbereitetes privates Strategiegespräch mit Markenaudit, NLP-informierten Sichtbarkeits-Impulsen und schriftlicher Zusammenfassung der nächsten Schritte.",
+        tagline: "Ein vorbereitetes 90-minütiges privates Strategiegespräch",
+        description: "Enthalten sind ein Markenaudit, NLP-informierte Sichtbarkeits-Impulse und eine schriftliche Zusammenfassung der nächsten Schritte.",
+        cta: "Buche deinen Legacy Clarity Call",
+        reason: { title: "Warum du einen Legacy Clarity Call brauchst", paragraphs: [
+          "Wenn jemand heute dein Profil entdeckt: Würde er sofort verstehen, wer du bist, was du anbietest und warum er dich wählen sollte?",
+          "Expertise allein reicht nicht, wenn deine Zielgruppe ihren Wert nicht erkennt. Eine unklare Botschaft führt zu unklarem Content, und unklarer Content schafft selten Vertrauen oder Anfragen.",
+          "Im Legacy Clarity Call analysieren wir deine aktuelle Marke, definieren deine Positionierung und erkennen, was dein Content vermitteln muss.",
+          "Du gehst mit klaren Kernbotschaften, strategischen Content-Säulen und einem fokussierten 30-Tage-Aktionsplan aus dem Gespräch.",
+          "Du brauchst nicht noch mehr zufällige Ideen. Du brauchst die richtige Richtung.",
+        ] },
+        beforeLabel: "Vor deinem Clarity Call",
+        before: [
+          { title: "Deine Marke wirkt unklar", body: "Du hast ein Business, ein Angebot oder Expertise, aber andere verstehen nicht sofort, wer du bist, was du tust oder warum sie dich wählen sollten." },
+          { title: "Du weißt nicht, was du posten sollst", body: "Du hast viele Ideen, aber keine klare Botschaft, keine Content-Säulen und keine Richtung." },
+          { title: "Deine Profile wirken unverbunden", body: "Dein persönliches Profil, deine Business-Seite und dein Angebot führen deine Zielgruppe nicht zu einem klaren nächsten Schritt." },
+          { title: "Du änderst ständig deine Richtung", body: "Du stellst deine Positionierung infrage, vergleichst dich mit anderen und tust dich schwer, sichere Entscheidungen zu treffen." },
+        ],
+        afterLabel: "Nach deinem Clarity Call",
+        after: [
+          { title: "Deine Positionierung wird klar", body: "Du weißt, zu wem du sprichst, wofür du bekannt sein willst und was deine Marke unterscheidet." },
+          { title: "Du weißt, was du kommunizieren willst", body: "Du gehst mit klaren Markenbotschaften, strategischen Content-Säulen und einem fokussierten 30-Tage-Plan aus dem Gespräch." },
+          { title: "Deine Profile bekommen einen Zweck", body: "Du verstehst, wie dein Profil, dein Content und dein Call-to-Action Menschen zu deinem Angebot führen sollen." },
+          { title: "Du kennst deinen nächsten Schritt", body: "Du hörst auf, weitere Ideen zu sammeln, und beginnst, die richtigen Prioritäten umzusetzen." },
+        ],
       },
       {
-        name: "Personal Brand Authority",
-        price: "",
-        cadence: "12 Wochen",
-        description:
-          "Das Flaggschiff-Mentoring: Identität & Positionierung → Content & Sichtbarkeit → Verkauf & Wachstum, eng begleitet.",
+        id: "build-your-legacy",
+        name: "Build Your Legacy",
+        tagline: "Ein 12-wöchiges Gruppenprogramm",
+        description: "Enthalten sind wöchentliches Live-Coaching, NLP-informierte Mindset-Arbeit, praktische Aufgaben, strukturiertes Feedback und Accountability.",
+        cta: "Für Build Your Legacy bewerben",
+        reason: { title: "Warum du Build Your Legacy brauchst", paragraphs: [
+          "Was könnte sich ändern, wenn du aufhörst zu raten, was du posten sollst, und beginnst, eine Marke mit klarer Strategie aufzubauen?",
+          "Eine starke Personal Brand entsteht nicht durch ein einziges virales Video. Sie entsteht durch eine klare Identität, wiederholte Botschaften, konsequentes Handeln und den Mut, sichtbar zu werden.",
+          "Build Your Legacy verbindet Personal Branding, Social-Media-Strategie und NLP-informiertes Coaching.",
+          "In zwölf Wochen lernst du nicht nur, was zu tun ist. Du setzt es um, bekommst Feedback und entdeckst, welche Botschaften, Formate und Strategien für dich und deine Zielgruppe wirklich funktionieren.",
+          "Das Ziel ist nicht nur, Follower zu gewinnen. Das Ziel ist, Vertrauen aufzubauen, die richtigen Menschen anzuziehen und eine Marke zu schaffen, die dein Business unterstützt.",
+        ] },
+        beforeLabel: "Vor Build Your Legacy",
+        before: [
+          { title: "Du bist sichtbar, aber nicht klar positioniert", body: "Du postest Content, aber deine Zielgruppe versteht deine Expertise, Botschaft oder dein Angebot nicht ganz." },
+          { title: "Angst und Perfektionismus bestimmen deine Konstanz", body: "Du zerdenkst deinen Content, sorgst dich vor Urteilen und wartest, bis sich alles perfekt anfühlt." },
+          { title: "Dein Content schafft nicht genug Geschäftschancen", body: "Du bekommst vielleicht Views oder Likes, aber nicht genug passende DMs, Anfragen, Bewerbungen oder Verkaufsgespräche." },
+          { title: "Du fängst immer wieder ohne System an", body: "Du probierst verschiedene Strategien aus, bleibst aber nicht konstant, weil du keinen wiederholbaren Prozess hast." },
+        ],
+        afterLabel: "Nach Build Your Legacy",
+        after: [
+          { title: "Menschen verstehen und merken sich deine Marke", body: "Deine Positionierung, Werte, Expertise und dein Angebot sind klar kommuniziert." },
+          { title: "Du wirst sicherer in deiner Sichtbarkeit", body: "Du erkennst die Muster, die dich bremsen, und lernst zu handeln, ohne darauf zu warten, dass die Angst verschwindet." },
+          { title: "Dein Content hat einen geschäftlichen Zweck", body: "Du weißt, wie du Content für Reichweite, Vertrauen und Conversion erstellst." },
+          { title: "Du hast ein System, das du weiter nutzen kannst", body: "Du gehst mit einem klaren Profil, Content-Säulen, getesteten Botschaften und deinem nächsten 90-Tage-Wachstumsplan aus dem Programm." },
+        ],
       },
       {
-        name: "Personal Brand Scale",
-        price: "",
-        cadence: "mind. 3 Monate",
-        description:
-          "Für etablierte Marken, die ihr bestehendes System skalieren statt neu aufbauen wollen.",
+        id: "legacy-private",
+        name: "Legacy Private",
+        tagline: "Eine private 12-wöchige Mentorenschaft",
+        description: "Enthalten sind zwölf Einzelgespräche, ein persönlicher Brand Blueprint, tiefergehendes NLP-informiertes Coaching, wöchentliches Content-Feedback und private Unterstützung.",
+        note: "Begrenzt auf zwei private Kundinnen gleichzeitig.",
+        cta: "Für Legacy Private bewerben",
+        beforeLabel: "Vor Legacy Private",
+        before: [
+          { title: "Dein Business hat Potenzial, aber deine Marke spiegelt es nicht ganz wider", body: "Du hast Expertise, ein Angebot oder ein etabliertes Business, aber dein Online-Auftritt vermittelt deinen wahren Wert nicht." },
+          { title: "Allgemeine Ratschläge reichen nicht mehr", body: "Du brauchst jemanden, der deine konkrete Situation analysiert und dir hilft, klare strategische Entscheidungen zu treffen." },
+          { title: "Innere Muster bremsen dein Wachstum", body: "Angst vor Urteilen, Perfektionismus, Selbstzweifel oder Schwierigkeiten beim Verkaufen wirken sich weiter auf deine Sichtbarkeit und Umsetzung aus." },
+          { title: "Du brauchst engere Begleitung", body: "Du willst nicht nur Informationen. Du willst individuelles Feedback, Korrektur und Accountability." },
+        ],
+        afterLabel: "Nach Legacy Private",
+        after: [
+          { title: "Deine Strategie ist auf dich zugeschnitten", body: "Deine Positionierung, Botschaften, dein Angebot und dein Content-Plan spiegeln deine Persönlichkeit, dein Business und deine Ziele wider." },
+          { title: "Du entscheidest schneller", body: "Du bekommst direktes Feedback und verlierst keine Zeit mehr damit, jede Botschaft, Idee und jeden nächsten Schritt zu hinterfragen." },
+          { title: "Du trittst selbstsicherer auf", body: "Durch NLP-informiertes Coaching verstehst du deine Muster und übst neue Reaktionen in echten Business-Situationen." },
+          { title: "Dein Content unterstützt dein Angebot", body: "Du baust ein klares System auf, das die richtigen Menschen von Content zu Vertrauen, Gespräch und Bewerbung führt." },
+        ],
       },
     ],
-    disclaimer: "",
   },
 
   testimonials: {
@@ -196,9 +229,8 @@ const de: Dictionary = {
           "Nein. Bei LEGACY geht es zuerst um Positionierung und Strategie, nicht um deine aktuelle Followerzahl.",
       },
       {
-        question: "Wie lange dauert das Personal Brand Authority-Programm?",
-        answer:
-          "12 Wochen, aufgeteilt in drei Phasen: Identität & Positionierung, Content & Sichtbarkeit, Verkauf & Wachstum.",
+        question: "Wie lange dauern die Programme?",
+        answer: "Build Your Legacy und Legacy Private dauern beide 12 Wochen.",
       },
       {
         question:

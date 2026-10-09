@@ -12,11 +12,26 @@
  * not finished marketing text.
  */
 
-export interface OfferItem {
+export interface OfferPoint {
+  title: string;
+  body: string;
+}
+
+/** One offer card: its name, what it is, what it includes, and the expandable rows inside the card.
+    Prices and payment plans are deliberately not part of the content (Ali, 2026-10). */
+export interface OfferCard {
+  /** The page anchor, e.g. "clarity-call" (the nav links to it). */
+  id: string;
   name: string;
-  price: string;
-  cadence: string;
+  tagline: string;
   description: string;
+  note?: string;
+  cta: string;
+  reason?: { title: string; paragraphs: string[] };
+  beforeLabel: string;
+  before: OfferPoint[];
+  afterLabel: string;
+  after: OfferPoint[];
 }
 
 export interface Dictionary {
@@ -74,27 +89,13 @@ export interface Dictionary {
     body: string[];
   };
 
-  clarityCall: {
-    eyebrow: string;
-    headline: string;
-    beforeLabel: string;
-    beforePoints: { title: string; body: string }[];
-    afterLabel: string;
-    afterPoints: { title: string; body: string }[];
-    /** "One prepared 90-minute private strategy call" */
-    format: string;
-    includes: string;
-    cta: string;
-  };
-
   offers: {
     eyebrow: string;
     headline: string;
     intro: string;
-    items: OfferItem[];
-    /** Unused while prices are off the site; the component renders it only when it has text. */
-    disclaimer: string;
+    cards: OfferCard[];
   };
+
 
   testimonials: {
     eyebrow: string;
