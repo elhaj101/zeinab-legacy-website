@@ -184,7 +184,7 @@ const de: Dictionary = {
       },
       {
         title: "Loslegen",
-        description: "Du startest mit dem Audit oder direkt im Mentoring-Programm.",
+        description: "Du startest mit dem Legacy Clarity Call oder direkt im Mentoring-Programm.",
       },
     ],
   },
@@ -206,7 +206,7 @@ const de: Dictionary = {
       {
         question:
           "Kann ich erst ein einzelnes Gespräch buchen, bevor ich mich fürs ganze Programm entscheide?",
-        answer: "Ja, genau dafür ist das Brand Clarity Audit gedacht.",
+        answer: "Ja, genau dafür ist der Legacy Clarity Call gedacht.",
       },
       {
         question: "Bekomme ich automatisch einen Platz, wenn ich mich bewerbe?",

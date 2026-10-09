@@ -180,7 +180,7 @@ const en: Dictionary = {
         title: "Analysis call",
         description: "A short call to figure out whether and how LEGACY fits your situation.",
       },
-      { title: "Get started", description: "You start with the Audit or straight into mentoring." },
+      { title: "Get started", description: "You start with the Legacy Clarity Call or straight into mentoring." },
     ],
   },
 
@@ -199,7 +199,7 @@ const en: Dictionary = {
       },
       {
         question: "Can I book a single session before committing to the full programme?",
-        answer: "Yes, that's exactly what the Brand Clarity Audit is for.",
+        answer: "Yes, that's exactly what the Legacy Clarity Call is for.",
       },
       {
         question: "Does applying guarantee me a spot?",

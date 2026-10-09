@@ -178,7 +178,7 @@ const ar: Dictionary = {
         title: "مكالمة تحليلية",
         description: "مكالمة قصيرة لمعرفة ما إذا كان LEGACY يناسب وضعكِ وكيف.",
       },
-      { title: "البدء", description: "تبدأين بالـ Audit أو مباشرة في برنامج الإرشاد." },
+      { title: "البدء", description: "تبدأين بمكالمة Legacy Clarity Call أو مباشرة في برنامج الإرشاد." },
     ],
   },
 
@@ -196,7 +196,7 @@ const ar: Dictionary = {
       },
       {
         question: "هل يمكنني حجز جلسة واحدة قبل الالتزام بالبرنامج الكامل؟",
-        answer: "نعم، هذا بالضبط ما صُمّم من أجله Brand Clarity Audit.",
+        answer: "نعم، هذا بالضبط ما صُمّم من أجله Legacy Clarity Call.",
       },
       {
         question: "هل تقديم الطلب يضمن لي مقعداً؟",
