@@ -7,6 +7,7 @@ import WhyLegacy from "@/components/WhyLegacy";
 import Method from "@/components/Method";
 import About from "@/components/About";
 import Offers from "@/components/Offers";
+import ClarityCall from "@/components/ClarityCall";
 import Testimonials from "@/components/Testimonials";
 import WhoFor from "@/components/WhoFor";
 import NextSteps from "@/components/NextSteps";
@@ -40,6 +41,7 @@ export default async function HomePage({
       <Method dict={dict} />
       <About dict={dict} />
       <Offers locale={raw} dict={dict} />
+      <ClarityCall locale={raw} dict={dict} />
       <Testimonials dict={dict} />
       <WhoFor dict={dict} />
       <NextSteps locale={raw} dict={dict} />

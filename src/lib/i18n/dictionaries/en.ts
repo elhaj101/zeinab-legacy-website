@@ -12,6 +12,7 @@ const en: Dictionary = {
     method: "Method",
     about: "About Seinab",
     offers: "Offers",
+    clarityCall: "Clarity Call",
     apply: "Apply",
     languageSwitcher: "Switch language",
   },
@@ -93,6 +94,30 @@ const en: Dictionary = {
     ],
   },
 
+  clarityCall: {
+    eyebrow: "Legacy Clarity Call",
+    headline: "Get clear on your brand in one conversation",
+    beforeLabel: "Before your Clarity Call",
+    beforePoints: [
+      { title: "Your brand feels unclear", body: "You have a business, offer or expertise, but people do not immediately understand who you are, what you do or why they should choose you." },
+      { title: "You do not know what to post", body: "You have many ideas but no clear message, content pillars or direction." },
+      { title: "Your profiles feel disconnected", body: "Your personal page, business page and offer do not lead your audience towards one clear next step." },
+      { title: "You keep changing your direction", body: "You question your positioning, compare yourself to others and struggle to make confident decisions." },
+    ],
+    afterLabel: "After your Clarity Call",
+    afterPoints: [
+      { title: "Your positioning becomes clear", body: "You know who you are speaking to, what you want to be known for and what makes your brand different." },
+      { title: "You know what to communicate", body: "You leave with clear brand messages, strategic content pillars and a focused 30-day plan." },
+      { title: "Your profiles have a purpose", body: "You understand how your profile, content and call to action should guide people towards your offer." },
+      { title: "You know your next step", body: "You stop collecting more ideas and begin implementing the right priorities." },
+    ],
+    format: "One prepared 90-minute private strategy call",
+    includes: "Includes a brand audit, NLP-informed visibility guidance and a written action summary.",
+    priceLabel: "Investment",
+    price: "€490",
+    cta: "Book Your Legacy Clarity Call",
+  },
+
   offers: {
     eyebrow: "Offers",
     headline: "Three ways to work with LEGACY",
@@ -100,11 +125,11 @@ const en: Dictionary = {
       "Each offer is matched to a different stage of your business — from first clarity to a scaled personal brand.",
     items: [
       {
-        name: "Brand Clarity Audit",
-        price: "€690",
-        cadence: "one-time",
+        name: "Legacy Clarity Call",
+        price: "€490",
+        cadence: "one-time, 90 minutes",
         description:
-          "A thorough assessment of your current positioning and visibility — with concrete next steps.",
+          "One prepared private strategy call with a brand audit, NLP-informed visibility guidance and a written action summary.",
       },
       {
         name: "Personal Brand Authority",

@@ -16,6 +16,7 @@ export default function Nav({ locale, dict }: { locale: Locale; dict: Dictionary
     { href: asset(`${base}#method`), label: dict.nav.method },
     { href: asset(`${base}#about`), label: dict.nav.about },
     { href: asset(`${base}#offers`), label: dict.nav.offers },
+    { href: asset(`${base}#clarity-call`), label: dict.nav.clarityCall },
   ];
 
   return (

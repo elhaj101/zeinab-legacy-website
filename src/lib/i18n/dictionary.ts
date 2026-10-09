@@ -29,6 +29,7 @@ export interface Dictionary {
     method: string;
     about: string;
     offers: string;
+    clarityCall: string;
     apply: string;
     /** Announces the language switcher to screen readers. */
     languageSwitcher: string;
@@ -71,6 +72,21 @@ export interface Dictionary {
     eyebrow: string;
     headline: string;
     body: string[];
+  };
+
+  clarityCall: {
+    eyebrow: string;
+    headline: string;
+    beforeLabel: string;
+    beforePoints: { title: string; body: string }[];
+    afterLabel: string;
+    afterPoints: { title: string; body: string }[];
+    /** "One prepared 90-minute private strategy call" */
+    format: string;
+    includes: string;
+    priceLabel: string;
+    price: string;
+    cta: string;
   };
 
   offers: {

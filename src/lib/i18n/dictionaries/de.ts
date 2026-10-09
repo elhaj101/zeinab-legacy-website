@@ -13,6 +13,7 @@ const de: Dictionary = {
     method: "Methode",
     about: "Über Seinab",
     offers: "Angebote",
+    clarityCall: "Clarity Call",
     apply: "Bewerben",
     languageSwitcher: "Sprache wechseln",
   },
@@ -94,6 +95,30 @@ const de: Dictionary = {
     ],
   },
 
+  clarityCall: {
+    eyebrow: "Legacy Clarity Call",
+    headline: "Werde in einem Gespräch klar über deine Marke",
+    beforeLabel: "Vor deinem Clarity Call",
+    beforePoints: [
+      { title: "Deine Marke wirkt unklar", body: "Du hast ein Business, ein Angebot oder Expertise, aber andere verstehen nicht sofort, wer du bist, was du tust oder warum sie dich wählen sollten." },
+      { title: "Du weißt nicht, was du posten sollst", body: "Du hast viele Ideen, aber keine klare Botschaft, keine Content-Säulen und keine Richtung." },
+      { title: "Deine Profile wirken unverbunden", body: "Dein persönliches Profil, deine Business-Seite und dein Angebot führen deine Zielgruppe nicht zu einem klaren nächsten Schritt." },
+      { title: "Du änderst ständig deine Richtung", body: "Du stellst deine Positionierung infrage, vergleichst dich mit anderen und tust dich schwer, sichere Entscheidungen zu treffen." },
+    ],
+    afterLabel: "Nach deinem Clarity Call",
+    afterPoints: [
+      { title: "Deine Positionierung wird klar", body: "Du weißt, zu wem du sprichst, wofür du bekannt sein willst und was deine Marke unterscheidet." },
+      { title: "Du weißt, was du kommunizieren willst", body: "Du gehst mit klaren Markenbotschaften, strategischen Content-Säulen und einem fokussierten 30-Tage-Plan aus dem Gespräch." },
+      { title: "Deine Profile bekommen einen Zweck", body: "Du verstehst, wie dein Profil, dein Content und dein Call-to-Action Menschen zu deinem Angebot führen sollen." },
+      { title: "Du kennst deinen nächsten Schritt", body: "Du hörst auf, weitere Ideen zu sammeln, und beginnst, die richtigen Prioritäten umzusetzen." },
+    ],
+    format: "Ein vorbereitetes 90-minütiges privates Strategiegespräch",
+    includes: "Enthalten sind ein Markenaudit, NLP-informierte Sichtbarkeits-Impulse und eine schriftliche Zusammenfassung der nächsten Schritte.",
+    priceLabel: "Investition",
+    price: "490 €",
+    cta: "Buche deinen Legacy Clarity Call",
+  },
+
   offers: {
     eyebrow: "Angebote",
     headline: "Drei Wege, mit LEGACY zu arbeiten",
@@ -101,11 +126,11 @@ const de: Dictionary = {
       "Jedes Angebot ist auf eine andere Phase deines Business abgestimmt — von der ersten Klarheit bis zum skalierten Personal Brand.",
     items: [
       {
-        name: "Brand Clarity Audit",
-        price: "690 €",
-        cadence: "einmalig",
+        name: "Legacy Clarity Call",
+        price: "490 €",
+        cadence: "einmalig, 90 Minuten",
         description:
-          "Eine fundierte Standortbestimmung deiner aktuellen Positionierung und Sichtbarkeit — mit konkreten nächsten Schritten.",
+          "Ein vorbereitetes privates Strategiegespräch mit Markenaudit, NLP-informierten Sichtbarkeits-Impulsen und schriftlicher Zusammenfassung der nächsten Schritte.",
       },
       {
         name: "Personal Brand Authority",
