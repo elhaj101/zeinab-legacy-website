@@ -158,7 +158,7 @@ const en: Dictionary = {
       {
         id: "legacy-private",
         name: "Legacy Private",
-        tagline: "A private 12-week mentorship",
+        tagline: "A 12-week 1:1 mentorship",
         description: "Includes twelve individual calls, a personalised Brand Blueprint, deeper NLP-informed coaching, weekly content feedback and private support.",
         note: "Limited to two private clients at a time.",
         cta: "Apply for Legacy Private",
