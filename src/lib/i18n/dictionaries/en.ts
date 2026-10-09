@@ -178,7 +178,7 @@ const en: Dictionary = {
       { title: "Apply", description: "You fill out the structured application form." },
       {
         title: "Analysis call",
-        description: "A short call to figure out whether and how LEGACY fits your situation.",
+        description: "A short, free call to figure out whether and how LEGACY fits your situation.",
       },
       { title: "Get started", description: "You start with the Legacy Clarity Call or straight into mentoring." },
     ],
@@ -217,7 +217,7 @@ const en: Dictionary = {
     eyebrow: "Analysis call",
     headline: "Get to know LEGACY in a conversation",
     body:
-      "Book a short analysis call to find out whether and how LEGACY fits your current situation.",
+      "Book a short, free analysis call to find out whether and how LEGACY fits your current situation.",
     ctaAvailable: "Book a call",
     ctaComingSoon: "Online booking coming soon",
     comingSoonNote:

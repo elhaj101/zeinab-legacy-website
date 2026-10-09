@@ -180,7 +180,7 @@ const de: Dictionary = {
       {
         title: "Analysegespräch",
         description:
-          "Wir klären in einem kurzen Gespräch, ob und wie LEGACY zu deiner aktuellen Situation passt.",
+          "Wir klären in einem kurzen, kostenlosen Gespräch, ob und wie LEGACY zu deiner aktuellen Situation passt.",
       },
       {
         title: "Loslegen",
@@ -224,7 +224,7 @@ const de: Dictionary = {
     eyebrow: "Analysegespräch",
     headline: "Lerne LEGACY in einem Gespräch kennen",
     body:
-      "Buche ein kurzes Analysegespräch, um zu klären, ob und wie LEGACY zu deiner aktuellen Situation passt.",
+      "Buche ein kurzes, kostenloses Analysegespräch, um zu klären, ob und wie LEGACY zu deiner aktuellen Situation passt.",
     ctaAvailable: "Termin buchen",
     ctaComingSoon: "Terminbuchung folgt in Kürze",
     comingSoonNote:
