@@ -133,7 +133,7 @@ const de: Dictionary = {
       {
         name: "Personal Brand Authority",
         price: "",
-        cadence: "12 Wochen, 3 Raten",
+        cadence: "12 Wochen",
         description:
           "Das Flaggschiff-Mentoring: Identität & Positionierung → Content & Sichtbarkeit → Verkauf & Wachstum, eng begleitet.",
       },

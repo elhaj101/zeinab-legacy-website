@@ -132,7 +132,7 @@ const ar: Dictionary = {
       {
         name: "Personal Brand Authority",
         price: "",
-        cadence: "12 أسبوعاً، 3 دفعات",
+        cadence: "12 أسبوعاً",
         description:
           "برنامج الإرشاد الرئيسي: الهوية والتموضع ← المحتوى والحضور ← المبيعات والنمو، بمتابعة مباشرة.",
       },

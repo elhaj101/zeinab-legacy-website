@@ -132,7 +132,7 @@ const en: Dictionary = {
       {
         name: "Personal Brand Authority",
         price: "",
-        cadence: "12 weeks, 3 instalments",
+        cadence: "12 weeks",
         description:
           "The flagship mentoring programme: Identity & Positioning → Content & Visibility → Sales & Growth, closely guided.",
       },
