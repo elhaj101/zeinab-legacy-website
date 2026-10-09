@@ -92,6 +92,7 @@ export interface Dictionary {
     headline: string;
     intro: string;
     items: OfferItem[];
+    /** Unused while prices are off the site; the component renders it only when it has text. */
     disclaimer: string;
   };
 
