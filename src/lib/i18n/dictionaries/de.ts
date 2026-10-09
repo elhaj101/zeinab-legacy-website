@@ -114,8 +114,6 @@ const de: Dictionary = {
     ],
     format: "Ein vorbereitetes 90-minütiges privates Strategiegespräch",
     includes: "Enthalten sind ein Markenaudit, NLP-informierte Sichtbarkeits-Impulse und eine schriftliche Zusammenfassung der nächsten Schritte.",
-    priceLabel: "Investition",
-    price: "490 €",
     cta: "Buche deinen Legacy Clarity Call",
   },
 
@@ -127,28 +125,27 @@ const de: Dictionary = {
     items: [
       {
         name: "Legacy Clarity Call",
-        price: "490 €",
+        price: "",
         cadence: "einmalig, 90 Minuten",
         description:
           "Ein vorbereitetes privates Strategiegespräch mit Markenaudit, NLP-informierten Sichtbarkeits-Impulsen und schriftlicher Zusammenfassung der nächsten Schritte.",
       },
       {
         name: "Personal Brand Authority",
-        price: "1.490 € / Monat",
+        price: "",
         cadence: "12 Wochen, 3 Raten",
         description:
           "Das Flaggschiff-Mentoring: Identität & Positionierung → Content & Sichtbarkeit → Verkauf & Wachstum, eng begleitet.",
       },
       {
         name: "Personal Brand Scale",
-        price: "2.490 € / Monat",
+        price: "",
         cadence: "mind. 3 Monate",
         description:
           "Für etablierte Marken, die ihr bestehendes System skalieren statt neu aufbauen wollen.",
       },
     ],
-    disclaimer:
-      "Gründungspreis für die ersten 3 Klient:innen im Personal Brand Authority-Programm: 1.190 € / Monat.",
+    disclaimer: "",
   },
 
   testimonials: {

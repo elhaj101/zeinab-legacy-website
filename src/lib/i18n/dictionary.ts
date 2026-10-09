@@ -84,8 +84,6 @@ export interface Dictionary {
     /** "One prepared 90-minute private strategy call" */
     format: string;
     includes: string;
-    priceLabel: string;
-    price: string;
     cta: string;
   };
 

@@ -31,8 +31,8 @@ export default function Offers({ locale, dict }: { locale: Locale; dict: Diction
                 className="flex w-full flex-col rounded-2xl border border-[var(--line)] bg-[var(--bg-alt)] p-6"
               >
                 <h3 className="text-lg font-semibold">{offer.name}</h3>
-                <p className="display mt-2 text-2xl font-semibold">{offer.price}</p>
-                <p className="text-sm text-[var(--muted)]">{offer.cadence}</p>
+                {offer.price && <p className="display mt-2 text-2xl font-semibold">{offer.price}</p>}
+                <p className="mt-1 text-sm text-[var(--muted)]">{offer.cadence}</p>
                 <p className="mt-4 flex-1 text-sm text-[var(--muted)]">{offer.description}</p>
                 <Link href={`${base}/apply`} className="btn btn-outline btn-sm mt-6">
                   {dict.hero.ctaApply}
@@ -42,7 +42,7 @@ export default function Offers({ locale, dict }: { locale: Locale; dict: Diction
           ))}
         </div>
 
-        <p className="mt-6 text-xs text-[var(--muted)]">{dict.offers.disclaimer}</p>
+        {dict.offers.disclaimer && <p className="mt-6 text-xs text-[var(--muted)]">{dict.offers.disclaimer}</p>}
       </div>
     </section>
   );

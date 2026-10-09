@@ -113,8 +113,6 @@ const en: Dictionary = {
     ],
     format: "One prepared 90-minute private strategy call",
     includes: "Includes a brand audit, NLP-informed visibility guidance and a written action summary.",
-    priceLabel: "Investment",
-    price: "€490",
     cta: "Book Your Legacy Clarity Call",
   },
 
@@ -126,28 +124,27 @@ const en: Dictionary = {
     items: [
       {
         name: "Legacy Clarity Call",
-        price: "€490",
+        price: "",
         cadence: "one-time, 90 minutes",
         description:
           "One prepared private strategy call with a brand audit, NLP-informed visibility guidance and a written action summary.",
       },
       {
         name: "Personal Brand Authority",
-        price: "€1,490 / month",
+        price: "",
         cadence: "12 weeks, 3 instalments",
         description:
           "The flagship mentoring programme: Identity & Positioning → Content & Visibility → Sales & Growth, closely guided.",
       },
       {
         name: "Personal Brand Scale",
-        price: "€2,490 / month",
+        price: "",
         cadence: "3-month minimum",
         description:
           "For established brands scaling an existing system rather than building from scratch.",
       },
     ],
-    disclaimer:
-      "Founding-client price for the first 3 clients in the Personal Brand Authority programme: €1,190 / month.",
+    disclaimer: "",
   },
 
   testimonials: {

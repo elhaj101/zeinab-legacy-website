@@ -49,9 +49,6 @@ export default function ClarityCall({ locale, dict }: { locale: Locale; dict: Di
         <div>
           <p className="text-lg font-semibold">{d.format}</p>
           <p className="mt-1 text-sm text-[var(--muted)]">{d.includes}</p>
-          <p className="mt-3 text-sm">
-            {d.priceLabel}: <span className="display text-2xl font-semibold">{d.price}</span>
-          </p>
         </div>
         <Link href={`/${locale}/apply`} className="btn btn-lg mt-6 inline-block sm:mt-0">
           {d.cta}
