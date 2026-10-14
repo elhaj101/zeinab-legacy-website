@@ -61,7 +61,7 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionar
   }, [chunks, reduceMotion]);
 
   return (
-    <section data-hero className="theme-dark relative flex min-h-dvh flex-col overflow-hidden">
+    <section data-hero className="theme-dark relative flex min-h-[calc(100dvh-4.1rem)] flex-col overflow-hidden sm:min-h-dvh">
       {/* Close-up crop, not the full-length shot: a wide, short hero frame
           only ever shows one thin horizontal slice of a tall photo, and for
           the full-length shot that slice was mostly blank wall above her
@@ -118,10 +118,10 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionar
         </h1>
       </div>
 
-      <div className="relative mx-auto mt-auto w-full max-w-4xl px-4 pb-16 pt-14 text-center text-white sm:px-6 sm:pb-24">
+      <div className="relative mx-auto mt-auto w-full max-w-4xl px-4 pb-10 pt-6 text-center text-white sm:px-6 sm:pb-24 sm:pt-14">
         <p
           data-intro="rise"
-          className="hero-neon display mx-auto flex min-h-[2lh] max-w-3xl items-center justify-center text-2xl font-semibold leading-snug sm:text-4xl md:text-5xl"
+          className="hero-neon display mx-auto flex min-h-[2lh] max-w-3xl items-center justify-center text-5xl font-bold leading-tight sm:text-7xl md:text-8xl"
         >
           {reduceMotion ? (
             chunks.join(" ")
@@ -144,7 +144,7 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionar
           data-intro="rise"
           className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row"
         >
-          <a href={asset(`${base}#method`)} className="btn btn-outline w-full sm:w-auto">
+          <a href={asset(`${base}#method`)} className="btn btn-outline btn-sm">
             {dict.hero.ctaMethod}
           </a>
         </div>

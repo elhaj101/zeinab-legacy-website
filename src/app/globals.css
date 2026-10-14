@@ -121,6 +121,12 @@ html[dir="rtl"] {
     color 0.45s var(--ease);
 }
 
+/* A smaller button, for a lone call to action. */
+.btn-sm {
+  padding: 0.45rem 1.1rem;
+  font-size: 0.875rem;
+}
+
 .btn:hover {
   background-size: 100% 100%;
   color: var(--btn-bg);
