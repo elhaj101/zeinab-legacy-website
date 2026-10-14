@@ -121,7 +121,7 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionar
       <div className="relative mx-auto mt-auto w-full max-w-4xl px-4 pb-10 pt-6 text-center text-white sm:px-6 sm:pb-24 sm:pt-14">
         <p
           data-intro="rise"
-          className="hero-neon display mx-auto flex min-h-[2lh] max-w-3xl items-center justify-center text-5xl font-bold leading-tight sm:text-7xl md:text-8xl"
+          className="hero-neon display mx-auto flex min-h-[2lh] max-w-3xl items-center justify-center text-[3.6rem] font-bold leading-tight sm:text-7xl md:text-8xl"
         >
           {reduceMotion ? (
             chunks.join(" ")
