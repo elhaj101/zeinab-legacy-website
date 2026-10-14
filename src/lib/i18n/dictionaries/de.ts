@@ -177,14 +177,6 @@ const de: Dictionary = {
     ],
   },
 
-  testimonials: {
-    eyebrow: "Erfahrungsberichte",
-    headline: "Was Klientinnen über LEGACY sagen",
-    placeholderNote:
-      "Hier stehen bald echte Erfahrungsberichte. Laut ihrem eigenen Brief veröffentlicht Seinab Testimonials nur mit ausdrücklicher Zustimmung der jeweiligen Klientin, deshalb wird hier nichts erfunden.",
-    placeholderCardLabel: "Platzhalter",
-  },
-
   whoFor: {
     eyebrow: "Für wen LEGACY gemacht ist",
     headline: "Ist LEGACY das Richtige für dich?",

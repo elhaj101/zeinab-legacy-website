@@ -13,7 +13,7 @@ import { BOOKING_EMBED_URL } from "@/config/booking";
  *
  * Where the three steps sit side by side, a thin line draws from badge to
  * badge as the section scrolls, with a spark riding it (StepsThread). On a
- * phone, where the steps stack, the line is hidden.
+ * phone, where the steps stack, it runs straight down a rail left of the cards.
  */
 export default function NextSteps({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const base = `/${locale}`;
@@ -32,7 +32,7 @@ export default function NextSteps({ locale, dict }: { locale: Locale; dict: Dict
       <div data-thread className="relative mt-10">
         <svg
           aria-hidden
-          className="pointer-events-none absolute inset-0 hidden h-full w-full overflow-visible text-[var(--fg)] opacity-0 sm:block"
+          className="pointer-events-none absolute inset-0 h-full w-full overflow-visible text-[var(--fg)] opacity-0"
           fill="none"
         >
           <path d="" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -40,10 +40,10 @@ export default function NextSteps({ locale, dict }: { locale: Locale; dict: Dict
         <span
           aria-hidden
           data-thread-spark
-          className="pointer-events-none absolute left-0 top-0 -ml-1.5 -mt-1.5 hidden h-3 w-3 rounded-full bg-[var(--fg)] opacity-0 shadow-[0_0_14px_3px_rgba(0,0,0,0.3)] sm:block"
+          className="pointer-events-none absolute left-0 top-0 -ml-1.5 -mt-1.5 h-3 w-3 rounded-full bg-[var(--fg)] opacity-0 shadow-[0_0_14px_3px_rgba(0,0,0,0.3)]"
         />
 
-        <ol data-anim="stagger" className="relative grid gap-6 sm:grid-cols-3">
+        <ol data-anim="stagger" className="relative grid gap-6 pl-8 sm:grid-cols-3 sm:pl-0">
           {d.steps.map((step, i) => (
             // Two layers on purpose: the <li> is moved by the scroll reveal (GSAP), the card inside
             // is tilted by the mouse (Anime.js). Two libraries never write the same element.

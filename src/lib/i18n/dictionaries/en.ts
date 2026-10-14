@@ -176,14 +176,6 @@ const en: Dictionary = {
     ],
   },
 
-  testimonials: {
-    eyebrow: "Testimonials",
-    headline: "What clients say about LEGACY",
-    placeholderNote:
-      "Real testimonials will go here once they exist. Per her own brief, Seinab only publishes a testimonial with the client's explicit permission, so nothing is invented here.",
-    placeholderCardLabel: "Placeholder",
-  },
-
   whoFor: {
     eyebrow: "Who LEGACY is for",
     headline: "Is LEGACY right for you?",

@@ -11,7 +11,8 @@ import { useAnimeScope } from "./useAnimeScope";
  * In each [data-thread] container, draws a gently curving line through the step badges
  * ([data-thread-stop]) as the section scrolls, and sends a spark ([data-thread-spark]) along it.
  * Positions come from offsetTop/offsetLeft, so reveal transforms on the steps don't skew them.
- * The line only exists when the steps sit side by side; stacked on a phone it stays hidden.
+ * Side by side it curves from badge to badge; stacked on a phone it runs straight down a rail
+ * to the left of the cards (the list is indented there to make room).
  */
 export function StepsThread() {
   const [size, setSize] = useState(0);
@@ -34,7 +35,6 @@ export function StepsThread() {
         const spark = box.querySelector<HTMLElement>("[data-thread-spark]");
         const stops = [...box.querySelectorAll<HTMLElement>("[data-thread-stop]")];
         if (!svg || !path || !spark || stops.length < 2) return;
-        if (getComputedStyle(svg).display === "none") return;
 
         const pos = (el: HTMLElement) => {
           let x = el.offsetWidth / 2;
@@ -46,8 +46,13 @@ export function StepsThread() {
           return { x, y };
         };
         const pts = stops.map(pos);
+        const stacked = Math.abs(pts[0].x - pts[1].x) < 8;
         let d = `M${pts[0].x},${pts[0].y}`;
-        for (let i = 1; i < pts.length; i++) {
+        if (stacked) {
+          const rail = 10;
+          d = `M${rail},${pts[0].y} L${rail},${pts[pts.length - 1].y}`;
+        }
+        for (let i = 1; i < pts.length && !stacked; i++) {
           const a = pts[i - 1];
           const b = pts[i];
           const sway = i % 2 ? 18 : -18;

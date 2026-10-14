@@ -97,15 +97,6 @@ export interface Dictionary {
   };
 
 
-  testimonials: {
-    eyebrow: string;
-    headline: string;
-    /** Shown instead of fabricated quotes — her brief requires explicit
-        permission before publishing any testimonial. */
-    placeholderNote: string;
-    placeholderCardLabel: string;
-  };
-
   whoFor: {
     eyebrow: string;
     headline: string;

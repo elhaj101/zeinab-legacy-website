@@ -177,14 +177,6 @@ const ar: Dictionary = {
     ],
   },
 
-  testimonials: {
-    eyebrow: "آراء العميلات",
-    headline: "ماذا تقول العميلات عن LEGACY",
-    placeholderNote:
-      "ستُضاف هنا آراء حقيقية بمجرد توفّرها. بحسب بريفها، تنشر Seinab آراء العميلات فقط بموافقة صريحة من العميلة نفسها، لذلك لا يُخترع هنا أي شيء.",
-    placeholderCardLabel: "نص مؤقت",
-  },
-
   whoFor: {
     eyebrow: "لمن صُمّم LEGACY",
     headline: "هل LEGACY مناسب لكِ؟",
