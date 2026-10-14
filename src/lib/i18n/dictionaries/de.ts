@@ -20,14 +20,7 @@ const de: Dictionary = {
 
   hero: {
     headline: "Deine Marke. Dein System. Dein LEGACY.",
-    subheadline: [
-      "LEGACY",
-      "ist das strukturierte System für",
-      "Coaches, Beraterinnen und Expertinnen,",
-      "die ihre persönliche Marke ernsthaft aufbauen wollen —",
-      "klar positioniert, sichtbar",
-      "und mit einem planbaren Weg zu qualifizierten Kundenanfragen.",
-    ],
+    subheadline: ["Seinab Dabbous"],
     ctaApply: "Jetzt bewerben",
     ctaMethod: "Die Methode entdecken",
   },
@@ -85,13 +78,16 @@ const de: Dictionary = {
   },
 
   about: {
-    eyebrow: "Über Seinab",
-    headline: "Die Person hinter LEGACY",
+    eyebrow: "Über die Gründerin",
+    headline: "Seinab Dabbous – Die Person hinter LEGACY",
     body: [
-      "Ich habe ganz unten angefangen — ohne Erfahrung, ohne Branchenwissen, ohne Plan. Was ich hatte, war die Bereitschaft, jeden Tag dazuzulernen und dranzubleiben, auch wenn es unbequem wurde.",
-      "Aus dieser Konsequenz ist eine echte Karriere im Network Marketing entstanden: ein Team aufgebaut und geführt, Rückschläge erlebt, aus denen ich neu aufgebaut habe, und dabei gelernt, dass Personenmarke und echte Führung zusammengehören.",
-      "Heute bringe ich Erfahrung aus Teamaufbau, Vertrieb, Personenmarke, Business Development und NLP-Coaching zusammen. Ich unterrichte nicht aus der Theorie, sondern aus dem, was ich selbst gebaut, verloren und wieder aufgebaut habe.",
-      "Mit LEGACY helfe ich ambitionierten Frauen und Unternehmerinnen, eine starke Personenmarke, echte Führungsstärke und ein Business mit Klarheit, Selbstvertrauen und Strategie aufzubauen.",
+      "Seinab Dabbous ist Unternehmerin, Business-Mentorin und zertifizierter NLP-Coach mit vier Jahren praktischer Erfahrung im Unternehmertum.",
+      "Ihren beruflichen Weg begann sie im Network Marketing. Dort baute sie ein eigenes Vertriebsbusiness auf und übernahm die Führung und Entwicklung von Teams mit bis zu 400 Menschen.",
+      "Ihr Schwerpunkt liegt auf Vertrieb, Leadership, strategischem Businessaufbau und der Entwicklung von Menschen und Marken.",
+      "Ergänzend zu ihrer unternehmerischen Erfahrung hat sie sich in den Bereichen Verkaufspsychologie, Leadership, NLP und professionellem Training weitergebildet.",
+      "Heute verbindet sie ihre praktische Erfahrung aus vier Jahren Unternehmertum mit fundierten Coaching- und Vertriebsmethoden.",
+      "Als Gründerin von LEGACY unterstützt sie Selbstständige, angehende Unternehmer und bestehende Unternehmen dabei, eine klare Positionierung zu entwickeln, eine starke Personenmarke aufzubauen und wirksame Strategien zur Kundengewinnung umzusetzen.",
+      "Ihr Ansatz: Personal Branding, Business Development und Mindset miteinander zu verbinden – mit dem Ziel, nicht nur Sichtbarkeit zu schaffen, sondern messbare unternehmerische Ergebnisse zu erzielen.",
     ],
   },
 

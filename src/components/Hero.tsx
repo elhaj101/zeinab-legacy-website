@@ -3,7 +3,6 @@
 import { Fragment, useEffect, useState } from "react";
 import { useReducedMotion } from "@/components/motion/useReducedMotion";
 import Image from "next/image";
-import Link from "next/link";
 import type { Dictionary } from "@/lib/i18n/dictionary";
 import type { Locale } from "@/lib/i18n/locales";
 import { asset } from "@/lib/asset";
@@ -12,6 +11,8 @@ import { asset } from "@/lib/asset";
 const HOLD_MS = 1200;
 /** Fade duration between phrases — must match `.is-leaving` in globals.css. */
 const FADE_MS = 500;
+/** The one-phrase-at-a-time cycle is switched off: the full sentence shows still. Set true to bring it back. */
+const CYCLE_PHRASES = false;
 
 export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const base = `/${locale}`;
@@ -29,7 +30,8 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionar
   // language switch remounts this component rather than reusing its state.
   const [index, setIndex] = useState(0);
   const [leaving, setLeaving] = useState(false);
-  const reduceMotion = useReducedMotion();
+  const prefersReducedMotion = useReducedMotion();
+  const reduceMotion = prefersReducedMotion || !CYCLE_PHRASES;
 
   useEffect(() => {
     if (reduceMotion || chunks.length <= 1) return;
@@ -142,9 +144,6 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionar
           data-intro="rise"
           className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row"
         >
-          <Link href={`${base}/apply`} className="btn w-full sm:w-auto">
-            {dict.hero.ctaApply}
-          </Link>
           <a href={asset(`${base}#method`)} className="btn btn-outline w-full sm:w-auto">
             {dict.hero.ctaMethod}
           </a>

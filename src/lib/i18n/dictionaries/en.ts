@@ -19,14 +19,7 @@ const en: Dictionary = {
 
   hero: {
     headline: "Your brand. Your system. Your LEGACY.",
-    subheadline: [
-      "LEGACY",
-      "is the structured system for",
-      "coaches, consultants and experts",
-      "who are serious about building a personal brand —",
-      "clearly positioned, visible,",
-      "and with a predictable path to qualified client enquiries.",
-    ],
+    subheadline: ["Seinab Dabbous"],
     ctaApply: "Apply now",
     ctaMethod: "Discover the method",
   },
@@ -84,13 +77,16 @@ const en: Dictionary = {
   },
 
   about: {
-    eyebrow: "About Seinab",
-    headline: "The person behind LEGACY",
+    eyebrow: "About the founder",
+    headline: "Seinab Dabbous – The person behind LEGACY",
     body: [
-      "I started at the very bottom — no experience, no industry knowledge, no roadmap. What I had was the willingness to keep learning and keep showing up, especially when it got uncomfortable.",
-      "That consistency turned into a real career in network marketing: building and leading a team, rebuilding after setbacks, and learning first-hand that personal branding and real leadership go hand in hand.",
-      "Today I bring together experience in team building, sales, personal branding, business development, and NLP coaching. I don't teach from theory — I teach from what I've actually built, lost, and rebuilt myself.",
-      "Through LEGACY, I help ambitious women and entrepreneurs build a strong personal brand, real leadership, and a business grounded in clarity, confidence, and strategy.",
+      "Seinab Dabbous is an entrepreneur, business mentor and certified NLP coach with four years of hands-on experience in business.",
+      "She began her career in network marketing, where she built her own sales business and took on the leadership and development of teams of up to 400 people.",
+      "Her focus is sales, leadership, strategic business building and the development of people and brands.",
+      "Alongside her entrepreneurial experience, she has trained further in sales psychology, leadership, NLP and professional training.",
+      "Today she combines four years of practical entrepreneurship with proven coaching and sales methods.",
+      "As the founder of LEGACY, she helps self-employed professionals, aspiring entrepreneurs and established businesses develop a clear positioning, build a strong personal brand and put effective client acquisition strategies into practice.",
+      "Her approach: to combine personal branding, business development and mindset, with the aim of creating not just visibility but measurable business results.",
     ],
   },
 
